@@ -43,7 +43,7 @@ if __name__ == "__main__":
 
     # bin / trec_terrier.sh - i -Dtermpipelines=Stopwords
     # -Dignore.low.idf.terms=true
-
+    # -Dterrier.index.path=none, --printlexicon etc
     # evaluation args
     index_parser.add_argument("--em", "--stopwords", type=bool, default=False, help="activates stopwords removal")
 
