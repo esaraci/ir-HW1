@@ -1,3 +1,5 @@
+
+
 ```bash
 # spostarsi sulla home directory di terrier
 # creare la cartella ./terrier/data
@@ -11,6 +13,7 @@ python3 sanitize_z_format.py ./data/TIPSTER
 # creare le cartelle necessarie al task
 mkdir var/indexes
 mkdir var/results
+mkdir var/evaluation
 
 # creare le sottocartelle per gli indici
 mkdir var/indexes/full var/indexes/nostop var/indexes/none
@@ -21,7 +24,6 @@ sh bin/trec_setup.sh data/TIPSTER
 
 
 ######### [STEP 2: INDEXING] ##########
-
 sh bin/trec_terrier.sh -i \
 -Dterrier.index.path=indexes/full \
 -Dtermpipelines=Stopwords,PorterStemmer
@@ -36,8 +38,6 @@ sh bin/trec_terrier.sh -i \
 
 
 ######### [STEP 3: RETRIEVAL] ##########
-
-
 sh bin/trec_terrier.sh -r \
 -Dterrier.index.path=indexes/full \
 -Dterrier.results=results/bm25_full \
@@ -63,8 +63,22 @@ sh bin/trec_terrier.sh -r \
 -Dtermpipelines=
 
 ######### [STEP 3: EVALUATION] ##########
+sh bin/trec_eval.sh -q -m all_trec \
+data/qrels.trec7.txt \
+var/results/bm25_full/####FILE####.res > var/evaluation/####FILE####.txt
 
-sh bin/trec_terrier.sh -r -Dterrier.index.path=none -Dtrec.model=TF_IDF -Dtrec.results=results
+sh bin/trec_eval.sh -q -m all_trec \
+data/qrels.trec7.txt \
+var/results/tf_idf_full/####FILE####.res > var/evaluation/####FILE####.txt
+
+sh bin/trec_eval.sh -q -m all_trec \
+data/qrels.trec7.txt \
+var/results/bm25_nostop/####FILE####.res > var/evaluation/####FILE####.txt
+
+sh bin/trec_eval.sh -q -m all_trec \
+data/qrels.trec7.txt \
+var/results/tf_idf_none/####FILE####.res > var/evaluation/####FILE####.txt
+
 
 ```
 
