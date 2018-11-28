@@ -105,3 +105,6 @@ org.terrier.indexing.TRECFullTokenizer=true
 
 ![](/home/esaraci/Projects/ir-HW1/assets/Screenshot_20181126_095913.png)
 
+
+
+
