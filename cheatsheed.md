@@ -53,7 +53,7 @@ ignore.low.idf.terms=true
 
 ```bash
 # spostarsi sulla home directory di terrier
-# creare la cartella ./terrier/data
+# creare la cartella ./data
 # copiare la cartella TIPSTER e i file qrels.trec7.txt, topics.351-400_trec7 dentro la cartella ./terrier/data
 
 ######### [STEP 0: PREPROCESSING] ##########
@@ -61,7 +61,7 @@ ignore.low.idf.terms=true
 # eseguire sanitize_z_format.py
 python3 sanitize_z_format.py
 
-# scomprimere i dati
+# decompressione dei dati
 uncompress data/TIPSTER/**/**/*
 
 # creare le cartelle necessarie al task
@@ -94,42 +94,48 @@ sh bin/trec_terrier.sh -i \
 ######### [STEP 3: RETRIEVAL] ##########
 sh bin/trec_terrier.sh -r \
 -Dterrier.index.path=indexes/full \
--Dterrier.results=results/bm25_full \
+-Dterrier.results=results \
+-Dtrec.results.file=bm25_full.res \
 -Dtrec.model=BM25 \
 -Dtermpipelines=Stopwords,PorterStemmer
 
 sh bin/trec_terrier.sh -r \
 -Dterrier.index.path=indexes/full \
--Dterrier.results=results/tf_idf_full \
+-Dterrier.results=results \
+-Dtrec.results.file=tf_idf_full.res \
 -Dtrec.model=TF_IDF \
 -Dtermpipelines=Stopwords,PorterStemmer
 
 sh bin/trec_terrier.sh -r \
 -Dterrier.index.path=indexes/nostop \
--Dterrier.results=results/bm25_nostop \
+-Dterrier.results=results \
+-Dtrec.results.file=bm25_nostop.res \
 -Dtrec.model=BM25 \
 -Dtermpipelines=PorterStemmer
 
 sh bin/trec_terrier.sh -r \
 -Dterrier.index.path=indexes/none \	
--Dterrier.results=results/tf_idf_none \
+-Dterrier.results=results \
+-Dtrec.results.file=tf_idf_none.res \
 -Dtrec.model=TF_IDF \
 -Dtermpipelines=
 
-######### [STEP 3: EVALUATION] ##########
+######### [STEP 4: EVALUATION] ##########
 sh bin/trec_eval.sh -q -m all_trec \
 data/qrels.trec7.txt \
-var/results/BM25b0.75_0.res > var/evaluation/bm25_full.txt
+var/results/bm25_full.res > var/evaluation/bm25_full.txt
 
 sh bin/trec_eval.sh -q -m all_trec \
 data/qrels.trec7.txt \
-var/results/TF_IDF_1.res > var/evaluation/tf_idf_full.txt
+var/results/tf_idf_full.res > var/evaluation/tf_idf_full.txt
 
 sh bin/trec_eval.sh -q -m all_trec \
 data/qrels.trec7.txt \
-var/results/BM25b0.75_2.res > var/evaluation/nostop.txt
+var/results/bm25_nostop.res > var/evaluation/nostop.txt
 
 sh bin/trec_eval.sh -q -m all_trec \
 data/qrels.trec7.txt \
-var/results/TF_IDF_3.res > var/evaluation/tf_idf_none.txt
+var/results/tf_idf_none.res > var/evaluation/tf_idf_none.txt
+
+######### [STEP 4: ANALYSIS] ##########
 ```
