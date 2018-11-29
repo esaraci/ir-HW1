@@ -55,14 +55,15 @@ ignore.low.idf.terms=true
 # spostarsi sulla home directory di terrier
 # creare la cartella ./data
 # copiare la cartella TIPSTER e i file qrels.trec7.txt, topics.351-400_trec7 dentro la cartella ./terrier/data
+# spostare sanitize_z_format.py dentro la cartella ./terrier/data
 
 ######### [STEP 0: PREPROCESSING] ##########
 
 # eseguire sanitize_z_format.py
 python3 sanitize_z_format.py
 
-# decompressione dei dati
-uncompress data/TIPSTER/**/**/*
+# spostarsi dentro ./terrier/data/TIPSTER ed eseguire
+uncompress ./**/*
 
 # creare le cartelle necessarie al task
 mkdir var/indexes
@@ -137,5 +138,5 @@ sh bin/trec_eval.sh -q -m all_trec \
 data/qrels.trec7.txt \
 var/results/tf_idf_none.res > var/evaluation/tf_idf_none.txt
 
-######### [STEP 4: ANALYSIS] ##########
+######### [STEP 5: ANALYSIS] ##########
 ```
