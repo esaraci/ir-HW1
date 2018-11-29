@@ -1,3 +1,54 @@
+##### Template per `etc/terrier.properties`
+
+```
+#default controls for query expansion
+querying.postprocesses.order=QueryExpansion
+querying.postprocesses.controls=qe:QueryExpansion
+#default controls for the web-based interface. SimpleDecorate
+#is the simplest metadata decorator. For more control, see Decorate.
+querying.postfilters.order=SimpleDecorate,SiteFilter,Scope
+querying.postfilters.controls=decorate:SimpleDecorate,site:SiteFilter,scope:Scope
+
+#default and allowed controls
+querying.default.controls=
+querying.allowed.controls=scope,qe,qemodel,start,end,site,scope
+
+#document tags specification
+#for processing the contents of
+#the documents, ignoring DOCHDR
+TrecDocTags.doctag=DOC
+TrecDocTags.idtag=DOCNO
+TrecDocTags.skip=DOCHDR
+#set to true if the tags can be of various case
+TrecDocTags.casesensitive=false
+
+#query tags specification
+TrecQueryTags.doctag=top
+TrecQueryTags.idtag=num
+TrecQueryTags.process=top,num,title
+TrecQueryTags.skip=desc,narr
+
+#stop-words file
+stopwords.filename=stopword-list.txt
+
+#the processing stages a term goes through
+#termpipelines=Stopwords,PorterStemmer
+termpipelines=
+
+#retrieval model
+trec.topics=data/topics.351-400_trec7.txt
+trec.qrels=data/qrels.trec7.txt
+
+# self explaing, default is true, changes between different versions
+ignore.low.idf.terms=true
+
+```
+
+
+
+
+
+#### Esecuzione script
 
 
 ```bash
@@ -8,7 +59,10 @@
 ######### [STEP 0: PREPROCESSING] ##########
 
 # eseguire sanitize_z_format.py
-python3 sanitize_z_format.py ./data/TIPSTER
+python3 sanitize_z_format.py
+
+# scomprimere i dati
+uncompress data/TIPSTER/**/**/*
 
 # creare le cartelle necessarie al task
 mkdir var/indexes
@@ -57,7 +111,7 @@ sh bin/trec_terrier.sh -r \
 -Dtermpipelines=PorterStemmer
 
 sh bin/trec_terrier.sh -r \
--Dterrier.index.path=indexes/none \
+-Dterrier.index.path=indexes/none \	
 -Dterrier.results=results/tf_idf_none \
 -Dtrec.model=TF_IDF \
 -Dtermpipelines=
@@ -65,20 +119,17 @@ sh bin/trec_terrier.sh -r \
 ######### [STEP 3: EVALUATION] ##########
 sh bin/trec_eval.sh -q -m all_trec \
 data/qrels.trec7.txt \
-var/results/bm25_full/####FILE####.res > var/evaluation/####FILE####.txt
+var/results/BM25b0.75_0.res > var/evaluation/bm25_full.txt
 
 sh bin/trec_eval.sh -q -m all_trec \
 data/qrels.trec7.txt \
-var/results/tf_idf_full/####FILE####.res > var/evaluation/####FILE####.txt
+var/results/TF_IDF_1.res > var/evaluation/tf_idf_full.txt
 
 sh bin/trec_eval.sh -q -m all_trec \
 data/qrels.trec7.txt \
-var/results/bm25_nostop/####FILE####.res > var/evaluation/####FILE####.txt
+var/results/BM25b0.75_2.res > var/evaluation/nostop.txt
 
 sh bin/trec_eval.sh -q -m all_trec \
 data/qrels.trec7.txt \
-var/results/tf_idf_none/####FILE####.res > var/evaluation/####FILE####.txt
-
-
+var/results/TF_IDF_3.res > var/evaluation/tf_idf_none.txt
 ```
-
