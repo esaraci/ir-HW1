@@ -131,7 +131,7 @@ var/results/tf_idf_full.res > var/evaluation/tf_idf_full.txt
 
 sh bin/trec_eval.sh -q -m all_trec \
 data/qrels.trec7.txt \
-var/results/bm25_nostop.res > var/evaluation/nostop.txt
+var/results/bm25_nostop.res > var/evaluation/bm25_nostop.txt
 
 sh bin/trec_eval.sh -q -m all_trec \
 data/qrels.trec7.txt \
