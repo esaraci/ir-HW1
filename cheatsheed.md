@@ -121,22 +121,24 @@ sh bin/trec_terrier.sh -r \
 -Dtrec.model=TF_IDF \
 -Dtermpipelines=
 
+
 ######### [STEP 4: EVALUATION] ##########
 sh bin/trec_eval.sh -q -m all_trec \
 data/qrels.trec7.txt \
-var/results/bm25_full.res > var/evaluation/bm25_full.txt
+var/results/bm25_full.res > terrier/var/evaluation/bm25_full.txt
 
 sh bin/trec_eval.sh -q -m all_trec \
 data/qrels.trec7.txt \
-var/results/tf_idf_full.res > var/evaluation/tf_idf_full.txt
+var/results/tf_idf_full.res > terrier/var/evaluation/tf_idf_full.txt
 
 sh bin/trec_eval.sh -q -m all_trec \
 data/qrels.trec7.txt \
-var/results/bm25_nostop.res > var/evaluation/bm25_nostop.txt
+var/results/bm25_nostop.res > terrier/var/evaluation/bm25_nostop.txt
 
 sh bin/trec_eval.sh -q -m all_trec \
 data/qrels.trec7.txt \
-var/results/tf_idf_none.res > var/evaluation/tf_idf_none.txt
+var/results/tf_idf_none.res > terrier/var/evaluation/tf_idf_none.txt
 
 ######### [STEP 5: ANALYSIS] ##########
 ```
+
