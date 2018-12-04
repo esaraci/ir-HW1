@@ -14,7 +14,7 @@ then
 fi
 mkdir terrier/var/evaluation
 
-echo "[STEP 4: EVALUATION --- STARTING]"
+echo "[+] -- EVALUATION --"
 
 sh terrier/bin/trec_eval.sh -q -m all_trec \
 data/qrels.trec7.txt \
@@ -32,4 +32,4 @@ sh terrier/bin/trec_eval.sh -q -m all_trec \
 data/qrels.trec7.txt \
 terrier/var/results/tf_idf_none.res > terrier/var/evaluation/tf_idf_none.txt
 
-echo "[STEP 4: EVALUATION --- FINISHED]"
+echo "[+] -- EVALUATION IS OVER --"

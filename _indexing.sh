@@ -34,7 +34,7 @@ then
 fi
 mkdir terrier/var/indexes/none
 
-echo "[STEP 2: INDEXING --- STARTING]"
+echo "[+] -- INDEXING --"
 
 index_1() {
 
@@ -61,4 +61,4 @@ index_3() {
 index_1 & index_2 & index_3
 wait
 
-echo "[STEP 2: INDEXING --- FINISHED]"
+echo "[+] -- INDEXING IS OVER --"
