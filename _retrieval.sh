@@ -8,6 +8,8 @@ if [ ! -f terrier/bin/trec_terrier.sh ]; then
     exit 1
 fi
 
+cp terrier.properties data/etc/terrier.properties
+
 echo "[+] -- RETRIEVAL IS STARTING --"
 
 sh terrier/bin/trec_terrier.sh -r \

@@ -30,6 +30,8 @@ echo "[+] -- PREPROCESSING IS STARTING --"
 
 # the next 4 'find' commands might not work on some systems/shells
 # if so comment the find commands and uncomment the python command
+# or let both find and python commands uncommentend
+# either way will work as long as one of the two commands works
 
 # echo "[+] Renaming .1Z .2Z .3Z files to .Z"
 find data/TIPSTER -name "*.0Z" -exec rename \.0Z _0.Z {} ';'
