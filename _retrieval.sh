@@ -8,7 +8,7 @@ if [ ! -f terrier/bin/trec_terrier.sh ]; then
     exit 1
 fi
 
-echo "[STEP 3: RETRIEVAL --- STARTING]"
+echo "[+] -- RETRIEVAL IS STARTING --"
 
 sh terrier/bin/trec_terrier.sh -r \
 -Dterrier.index.path=indexes/full \
@@ -38,4 +38,4 @@ sh terrier/bin/trec_terrier.sh -r \
 -Dtrec.model=TF_IDF \
 -Dtermpipelines=
 
-echo "[STEP 3: RETRIEVAL --- FINISHED]"
+echo "[+] -- INDEXING IS OVER --"

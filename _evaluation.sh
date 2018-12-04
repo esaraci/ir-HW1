@@ -14,7 +14,7 @@ then
 fi
 mkdir terrier/var/evaluation
 
-echo "[+] -- EVALUATION --"
+echo "[+] -- EVALUATION IS STARTING --"
 
 sh terrier/bin/trec_eval.sh -q -m all_trec \
 data/qrels.trec7.txt \

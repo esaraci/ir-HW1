@@ -1,1 +1,1 @@
-echo "--- ANOVA MODULE IS NO READY YET ---"
+echo "[-] --- ANOVA MODULE IS NO READY YET --- [-]"

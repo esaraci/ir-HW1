@@ -8,9 +8,6 @@ if [ ! -f terrier/bin/trec_terrier.sh ]; then
     exit 1
 fi
 
-
-# cleaning and creating directories
-
 if [ ! -d "terrier/var/indexes" ]
 then
     mkdir terrier/var/indexes
@@ -34,7 +31,7 @@ then
 fi
 mkdir terrier/var/indexes/none
 
-echo "[+] -- INDEXING --"
+echo "[+] -- INDEXING IS STARTING --"
 
 index_1() {
 
