@@ -26,4 +26,5 @@ if [ ! -f data/topics.351-400_trec7.txt ]; then
     exit 1
 fi
 
-
+mv terrier/etc/terrier.properties terrier/etc/terrier.properties.bak
+mv terrier.properties terrier/etc/terrier.properties

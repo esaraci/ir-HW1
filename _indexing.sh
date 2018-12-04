@@ -1,6 +1,7 @@
 # author: Eugen Saraci
 # date  : 03/12/18
-    
+
+
 if [ ! -f terrier/bin/trec_terrier.sh ]; then
     echo "[-] terrier/bin/trec_terrier.sh not found!"
     echo "[-] Please be sure to execute this script just outside of the terrier directory."
@@ -8,7 +9,7 @@ if [ ! -f terrier/bin/trec_terrier.sh ]; then
 fi
 
 
-# cleaning and creating direcotries
+# cleaning and creating directories
 
 if [ ! -d "terrier/var/indexes" ]
 then
@@ -33,7 +34,6 @@ then
 fi
 mkdir terrier/var/indexes/none
 
-    
 echo "[STEP 2: INDEXING --- STARTING]"
 
 index_1() {
@@ -57,8 +57,6 @@ index_3() {
     -Dtermpipelines=
 }
 
-
-# main
 
 index_1 & index_2 & index_3
 wait
