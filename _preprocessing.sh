@@ -26,17 +26,17 @@ if [ ! -f data/topics.351-400_trec7.txt ]; then
     exit 1
 fi
 
+# the next 'find' commands do not work on some systems/shells
+# comment the lines and use the python script called sanitize_z_format
 
 # echo "[+] Renaming .1Z .2Z .3Z files to .Z"
 find data/TIPSTER -name "*.0Z" -exec rename .0Z _0.Z {} ';'
 find data/TIPSTER -name "*.1Z" -exec rename .1Z _1.Z {} ';'
 find data/TIPSTER -name "*.2Z" -exec rename .2Z _2.Z {} ';'
-
-# echo "[+] Uncomrpessing .Z files"
 find data/TIPSTER -name "*.Z" -exec uncompress {} ';'
 
 # echo "[+] Moving terrier.properties"
 mv terrier/etc/terrier.properties terrier/etc/terrier.properties.bak
-mv terrier.properties terrier/etc/terrier.properties
+cp terrier.properties terrier/etc/terrier.properties
 
 echo "[+] -- PREPROCESSING IS OVER --"

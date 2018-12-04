@@ -10,11 +10,11 @@ targets = ["data/TIPSTER/TREC_VOL4/FR94"]
 def rename_file(path):
     ext = path[-3:]
     if ext == ".0Z":
-        os.rename(path, path[:-3] + '-0.Z')
+        os.rename(path, path[:-3] + '_0.Z')
     elif ext == ".1Z":
-        os.rename(path, path[:-3] + '-1.Z')
+        os.rename(path, path[:-3] + '_1.Z')
     elif ext == ".2Z":
-        os.rename(path, path[:-3] + '-2.Z')
+        os.rename(path, path[:-3] + '_2.Z')
     else:
         pass
 
@@ -26,3 +26,5 @@ for target_f in targets:
                 rename_file(path)
         except:
             continue
+
+os.system("data/TIPSTER/**/**/**/*")
