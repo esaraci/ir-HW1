@@ -39,4 +39,6 @@ find data/TIPSTER -name "*.Z" -exec uncompress {} ';'
 mv terrier/etc/terrier.properties terrier/etc/terrier.properties.bak
 cp terrier.properties terrier/etc/terrier.properties
 
+sh terrier/bin/trec_setup.sh data/TIPSTER/
+
 echo "[+] -- PREPROCESSING IS OVER --"

@@ -27,4 +27,6 @@ for target_f in targets:
         except:
             continue
 
-os.system("data/TIPSTER/**/**/**/*")
+os.system("uncompress data/TIPSTER/TREC_VOL4/**/**/*")
+os.system("uncompress data/TIPSTER/TREC_VOL5/**/*")
+
