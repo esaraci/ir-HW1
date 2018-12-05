@@ -32,4 +32,14 @@ sh terrier/bin/trec_eval.sh -q -m all_trec \
 data/qrels.trec7.txt \
 terrier/var/results/tf_idf_none.res > terrier/var/evaluation/tf_idf_none.txt
 
+if [ -d figures ]
+then
+	rm -r figures
+fi
+mkdir figures
+
+python plot_eval.py
+
+echo "[+] -- saving plots..."
+
 echo "[+] -- EVALUATION IS OVER --"
