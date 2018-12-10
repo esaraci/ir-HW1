@@ -35,9 +35,11 @@ legend_label    = itertools.cycle(("BM25 - PorterStemmer + Stopwords",
                                     "TF_IDF - NO PorterStemmer, NO Stopwords"))
 
 
-########################################
-# INTERPOLATED PR CURVE for TOPIC = ALL
-########################################
+##########################################
+# INTERPOLATED PR CURVE
+# TOPIC = ALL
+# RECALL_CUTOFFS = [0.1 .. 1, step=0.1]
+##########################################
 topic = "all"
 plt.xticks(np.linspace(0, 1, 11))
 plt.yticks(np.linspace(0, 1, 11))
@@ -61,9 +63,12 @@ plt.savefig("./figures/iprc.png")
 plt.clf()
 
 
-#############################
-# PR CURVE for TOPIC = ALL
-#############################
+#################################################
+# PR CURVE
+# TOPIC = ALL
+# CUTOFFS = [5,10,15,20,30,50,100,200,500,1000]
+#################################################
+
 topic = "all"
 plt.xlim(0, 0.6)
 plt.ylim(0, 0.6)
@@ -83,86 +88,116 @@ plt.savefig("./figures/prc.png")
 plt.clf()
 
 
-#############################
+##################################################
 # METRICS REQUIRED BY HW1
-#############################
+# TOPIC = ALL --> these are all means
+# @aps      = Mean Average Precision
+# @rprecs   = prec @ RecallBase
+# @precs_10 = prec @ 10 (top-10 docs)
+# they all contain 4 values, one for each system
+##################################################
 
-aps         = []
+maps        = []
 rprecs      = []
 precs_10    = []
 
 for fname in files:
     evals = np.loadtxt("./terrier/var/evaluation/{}".format(fname), skiprows=2, dtype=str)
-    aps.append([float(x[2]) for x in evals if x[1] == topic and x[0] == "map"][0])
+    maps.append([float(x[2]) for x in evals if x[1] == topic and x[0] == "map"][0])
     rprecs.append([float(x[2]) for x in evals if x[1] == topic and x[0] == "Rprec"][0])
     precs_10.append([float(x[2]) for x in evals if x[1] == topic and x[0] == "P_10"][0])
 
 
-# print(tabulate(list(zip(legend_label, aps, rprecs, precs_10)), ["Modello", "MAP", "RPrec", "P@10"], tablefmt="pipe"))
-
+print("\n" + tabulate(list(zip(legend_label, maps, rprecs, precs_10)), ["Model", "MAP", "RPrec", "P@10"], tablefmt="pipe") + "\n")
 
 
 ################################
 # HYPOTHESIS TESTING
 ################################
 
-aps         = []
+maps        = []
 rprecs      = []
 precs_10    = []
 
 for fname in files:
     evals = np.loadtxt("./terrier/var/evaluation/{}".format(fname), skiprows=2, dtype=str)
-    aps.append([float(x[2]) for x in evals if x[1] != topic and x[0] == "map"])
+    maps.append([float(x[2]) for x in evals if x[1] != topic and x[0] == "map"])
     rprecs.append([float(x[2]) for x in evals if x[1] != topic and x[0] == "Rprec"])
     precs_10.append([float(x[2]) for x in evals if x[1] != topic and x[0] == "P_10"])
 
+maps        = np.array(maps)
+rprecs      = np.array(rprecs)
+precs_10    = np.array(precs_10)
 
 
-# needed for pairwise_tukeyhsd
+#####################################
+# BOXPLOTS FOR MAP, RPREC AND PREC@10
+#####################################
+
+plt.boxplot([maps[0], maps[1], maps[2], maps[3]], vert=False, labels=["bm25_full", "tf_idf_full", "bm25_nostop", "tf_idf_none"])
+plt.title("Distributions of MAPs")
+plt.xlabel("MAP")
+plt.tight_layout()
+plt.savefig("./figures/distr_maps.png")
+plt.clf()
+
+plt.boxplot([rprecs[0], rprecs[1], rprecs[2], rprecs[3]], vert=False, labels=["bm25_full", "tf_idf_full", "bm25_nostop", "tf_idf_none"])
+plt.title("Distributions of RPrecs")
+plt.xlabel("RPrec")
+plt.tight_layout()
+plt.savefig("./figures/distr_rprecs.png")
+plt.clf()
+
+plt.boxplot([precs_10[0], precs_10[1], precs_10[2], precs_10[3]], vert=False, labels=["bm25_full", "tf_idf_full", "bm25_nostop", "tf_idf_none"])
+plt.title("Distributions of P@10s")
+plt.xlabel("P@10")
+plt.tight_layout()
+plt.savefig("./figures/distr_precs_10.png")
+plt.clf()
+
+
+
+######################################
+# ANOVA 1-WAY
+######################################
+anova_maps      = stats.f_oneway(maps[0], maps[1], maps[2], maps[3])
+anova_rprecs    = stats.f_oneway(rprecs[0], rprecs[1], rprecs[2], rprecs[3])
+anova_precs_10  = stats.f_oneway(precs_10[0], precs_10[1], precs_10[2], precs_10[3])
+
+print("|        ANOVA 1-way        | ")
+print("|---------------------------| ")
+print("| MAP   | F: {0:.2f} | p: {1:.2f} |".format(anova_maps[0], anova_maps[1]))
+print("| RPREC | F: {0:.2f} | p: {1:.2f} |".format(anova_rprecs[0], anova_rprecs[1]))
+print("| P@10  | F: {0:.2f} | p: {1:.2f} |".format(anova_precs_10[0], anova_precs_10[1]))
+print()
+
+
+######################################
+# TUKEY HSD
+######################################
+
+# needed for `pairwise_tukeyhsd`
 names = np.repeat("bm25_full", 50)
 names = np.append(names, np.repeat("tf_idf_full", 50))
 names = np.append(names, np.repeat("bm25_nostop", 50))
 names = np.append(names, np.repeat("tf_idf_none", 50))
 
-aps         = np.array(aps)
-rprecs      = np.array(rprecs)
-precs_10    = np.array(precs_10)
-
-
-plt.boxplot([aps[0], aps[1], aps[2], aps[3]], vert=False, labels=["bm25_full", "tf_idf_full", "bm25_nostop", "tf_idf_none"])
-plt.show()
-
-# needed for pairwise_tukeyhsd
-aps.shape       = (200,)
+# reshaping for `pairwise_tukeyhsd`
+maps.shape      = (200,)
 rprecs.shape    = (200,)
 precs_10.shape  = (200,)
 
-tukey_map       = pairwise_tukeyhsd(aps, names)
+tukey_maps      = pairwise_tukeyhsd(maps, names)
 tukey_rprecs    = pairwise_tukeyhsd(rprecs, names)
 tukey_precs_10  = pairwise_tukeyhsd(precs_10, names)
 
-print(tukey_map)
-tukey_map.plot_simultaneous("bm_25_full").savefig("./figures/tukey_map.png")
-tukey_rprecs.plot_simultaneous("bm_25_full").savefig("./figures/tukey_rprecs.png")
-tukey_precs_10.plot_simultaneous("bm_25_full").savefig("./figures/tukey_precs_10.png")
+print(tukey_maps)
+print()
+print(tukey_rprecs)
+print()
+print(tukey_precs_10)
 
-# print(stats.f_oneway(aps[0], aps[1], aps[2], aps[3]))
-# print(stats.f_oneway(rprecs[0], rprecs[1], rprecs[2], rprecs[3]))
-# print(stats.f_oneway(precs_10[0], precs_10[1], precs_10[2], precs_10[3]))
-
-
-
-"""
-evals = np.loadtxt("./terrier/var/evaluation/{}".format(files[0]), skiprows=2, dtype=str)
-
-aps = []
-for topic in range(351, 401):
-    aps.append([float(x[2]) for x in evals if x[1] == str(topic) and x[0] == "map"][0])
-
-print(aps)
-plt.figure()
-plt.bar(np.arange(351, 401), aps)
-plt.show()
-
-"""
-
+# saving plots
+tukey_maps.plot_simultaneous("bm25_full").savefig("./figures/tukey_maps.png")
+tukey_rprecs.plot_simultaneous("bm25_full").savefig("./figures/tukey_rprecs.png")
+tukey_precs_10.plot_simultaneous("bm25_full").savefig("./figures/tukey_precs_10.png")
