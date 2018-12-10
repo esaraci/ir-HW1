@@ -1,6 +1,6 @@
 # ir-HW1
 
-Usage: `bash main.sh`
+Usage: ```bash bash main.sh```
 
 `main.sh` will call sequentially 
 
