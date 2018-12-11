@@ -57,32 +57,48 @@ figures
 
 ___
 
-## Documentation
+## "Documentation"
 
-`main.sh` will sequentially execute
+`main.sh` will sequentially execute:
 
-1. `_preprocessing.sh`
-1. `_indexing.sh`
-1. `_retrieval.sh`
-1. `_evaluation.sh`
+1. `_preprocessing.sh`;
+1. `_indexing.sh`;
+1. `_retrieval.sh`;
+1. `_evaluation.sh`.
 ___
 
 ### `_preprocessing.sh`
-This script performs some basic sanity checks and creates the folders needed for the correct execution. It also renames `.{1,2,3}Z` files to `_{1,2,3}.Z` files and uncompresses them  using `uncompress`. If something goes wrong with these commands then `sanitize_z_format.py` is executed, this python script will rename and uncompress the files in the same manner, but it will not trigger parsing errors (which may happen on some OS + Shell configuration).
+This script performs some basic sanity checks and creates the folders needed for the correct execution. It also renames `.{1,2,3}Z` files to `_{1,2,3}.Z` files and uncompresses them  using `uncompress`. If something goes wrong with these commands then `sanitize_z_format.py` is executed, this python script will rename and uncompress the files in the same manner, but it will not trigger parsing errors (which may happen on some OS + Shell configuration). Finally the script will tell Terrier to create the `collection.spec` file.
 
 ___
 
 ### `_indexing.sh`
-This script spawns 3 subprocesses making each one of them execute terrier with different parameteres as requesteb by the homeowrk. Follows one of the commands
+This script spawns 3 subprocesses making each one of them execute Terrier with different parameteres as requesteb by the homework. Follows one of the commands
 ```bash
 sh terrier/bin/trec_terrier.sh -i \
 -Dterrier.index.path=indexes/full \
 -Dtermpipelines=Stopwords,PorterStemmer  
 ```
-If everything executes correctly there will be 3 folders insied `terrier/var/indexes` called `full`, `nostop`, and `none`. 
+If everything executes correctly there will be 3 new folders inside `terrier/var/indexes` called `full`, `nostop`, and `none`. 
 
-- `full` is the index created using both PorterStemmer and Stopwords removal
-- `nostop` is the index created using only the PorterStemmer
-- `none` does not involve neither Stemming nor Stopwords removal
+- `full` is the index created using both PorterStemmer and Stopwords removal;
+- `nostop` is the index created using only the PorterStemmer;
+- `none` does not involve neither Stemming nor Stopwords removal.
 
 ___
+
+### `_retrieval`
+This script executes Terrier with different parameters (i.e. using different retrieval models), this time however, given the fast execution time, the tasks are executed sequentially and not in parallel. Follows one of the commands
+
+```
+sh terrier/bin/trec_terrier.sh -r \
+-Dterrier.index.path=indexes/full \
+-Dterrier.results=results \
+-Dtrec.results.file=bm25_full.res \
+-Dtrec.model=BM25 \
+-Dtermpipelines=Stopwords,PorterStemmer
+```
+If everything goes as expected there will be 4 new files (8 actually but we only need 4) inside `terrier/var/results`.
+- `bm25_full`
+- `tf_idf_full`
+- ``
