@@ -1,6 +1,6 @@
 # ir-HW1
 
-## Usage
+### Usage
 
 Clone the repository
 ```
