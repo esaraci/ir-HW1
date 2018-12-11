@@ -68,7 +68,7 @@ ___
 ___
 
 ### `_preprocessing.sh`
-This script performs some basic sanity checks and creates the folders needed for the correct execution. It also renames `.{1,2,3}Z` files to `_{1,2,3}.Z` files and uncompresses them  using `uncompress`. If something goes wrong with these commands then `sanitize_z_format.py` is executed, this python script will rename and uncompress the files in the same manner, but it will not trigger parsing errors (which may happen on some OS + Shell configuration). Finally the script will tell Terrier to create the `collection.spec` file.
+This script performs some basic sanity checks and creates the folders needed for its correct execution. It also renames `.{1,2,3}Z` files to `_{1,2,3}.Z` files and uncompresses them  using `uncompress`. If something goes wrong with these commands then `sanitize_z_format.py` is executed, this python script will rename and uncompress the files in the same manner, but it will not trigger parsing errors (which may occur on some OS + Shell configurations). Finally the script will tell Terrier to create the `collection.spec` file.
 
 ___
 
@@ -85,10 +85,11 @@ If everything executes correctly there will be 3 new folders inside `terrier/var
 - `nostop` - index created using only the PorterStemmer;
 - `none` - index that involves neither Stemming nor Stopwords removal.
 
+From now on, when invoking a Terrier command, we need to specify on which index we want the command to be executed. That can be done with the inline parameter `-Dterrier.index.path=indexes/{full, nostop, none}`.
 ___
 
 ### `_retrieval.sh`
-This script executes Terrier with different parameters (i.e. using different retrieval models), this time however, given the fast execution time, the tasks are executed sequentially and not in parallel. In this phase the topics contained in `topics.351-400_trec7.txt` will be queried to our systems which by using different combinations of index + retrieval model will return a list of _presumed to be_ relevant documents for a given topic. Follows one of the commands:
+This script executes Terrier with different parameters (i.e. using different retrieval models), this time however, given the fast execution time, the tasks are executed sequentially and not in parallel. In this phase the topics contained in `topics.351-400_trec7.txt` will be queried to our systems which by using different combinations of index + retrieval model will return a list of documents deemed to be relevant for a given topic. Follows one of the commands:
 
 ```
 sh terrier/bin/trec_terrier.sh -r \
@@ -98,7 +99,7 @@ sh terrier/bin/trec_terrier.sh -r \
 -Dtrec.model=BM25 \
 -Dtermpipelines=Stopwords,PorterStemmer
 ```
-If everything goes as expected there will be 4 new files (8 actually but we only need 4) inside `terrier/var/results`.
+If everything goes as expected there will be 4 new files (8 actually) inside `terrier/var/results`.
 
 - `bm25_full.res` - run file by the system using BM25 as retrieval model and `full` as index
 - `tf_idf_full.res` - run file by the system using TF_IDF as retrieval model and `full` as index
