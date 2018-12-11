@@ -65,6 +65,7 @@ ___
 1. `_indexing.sh`
 1. `_retrieval.sh`
 1. `_evaluation.sh`
+___
 
 ### `_preprocessing.sh`
 This script performs some basic sanity checks and creates the folders needed for the correct execution. It also renames `.{1,2,3}Z` files to `_{1,2,3}.Z` files and uncompresses them  using `uncompress`. If something goes wrong with these commands then `sanitize_z_format.py` is executed, this python script will rename and uncompress the files in the same manner, but it will not trigger parsing errors (which may happen on some OS + Shell configuration).
