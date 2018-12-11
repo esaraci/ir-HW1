@@ -24,7 +24,7 @@ execute `main.sh` after giving it exec permission
 $ chmod +x main.sh && ./main.sh
 ```
 
-some "text" tables will be sent to `stdout` while the output files of the whole process can be found in:
+some "text" tables will be printed to `stdout` while the output files of the whole process can be found in:
 
 ```
 terrier/var
@@ -48,7 +48,7 @@ figures
 ├── distr_maps.png        # boxplots of MAPs (APs) values across the 50 topics for the 4 systems
 ├── distr_precs_10.png    # boxplots of P@10s values across the 50 topics for the 4 systems
 ├── distr_rprecs.png      # boxplots of RPrecs values across the 50 topics for the 4 systems
-├── iprc.png              # interpolated precision-recall curve (for topic=all) at different recall values
+├── iprc.png              # interpolated precision-recall curve (for topic=all) at different recall levels
 ├── prc.png               # precision recall curve (for topic=all), cutoffs at [5,10,15,20,30,50,100,200,500,1000]
 ├── tukey_maps.png        # TODO:
 ├── tukey_precs_10.png    # TODO:
@@ -87,7 +87,7 @@ If everything executes correctly there will be 3 new folders inside `terrier/var
 
 ___
 
-### `_retrieval`
+### `_retrieval.sh`
 This script executes Terrier with different parameters (i.e. using different retrieval models), this time however, given the fast execution time, the tasks are executed sequentially and not in parallel. In this phase the topics contained in `topics.351-400_trec7.txt` will be queried to our systems which by using different combinations of index + retrieval model will return a list of _presumed to be_ relevant documents for a given topic. Follows one of the commands:
 
 ```
