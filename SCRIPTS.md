@@ -1,5 +1,7 @@
 ## Documentation
 
+
+### `_main.sh`
 `main.sh` will sequentially execute:
 
 1. `_preprocessing.sh`;
@@ -42,8 +44,12 @@ sh terrier/bin/trec_terrier.sh -r \
 ```
 If everything goes as expected there will be 4 new files (8 actually) inside `terrier/var/results`.
 
-- `bm25_full.res` - run file by the system using BM25 as retrieval model and `full` as index
-- `tf_idf_full.res` - run file by the system using TF_IDF as retrieval model and `full` as index
-- `bm25_nostop.res` - run file by the system using BM25 as retrieval model and `nostop` as index
-- `tf_idf_none.res` - run file by the system using TF_IDF as retrieval model and `none` as index
+- `bm25_full.res` - run file by the system using BM25 as retrieval model and `full` as index;
+- `tf_idf_full.res` - run file by the system using TF_IDF as retrieval model and `full` as index;
+- `bm25_nostop.res` - run file by the system using BM25 as retrieval model and `nostop` as index;
+- `tf_idf_none.res` - run file by the system using TF_IDF as retrieval model and `none` as index.
 
+___
+
+### `_evaluation.sh` 
+This scrip
