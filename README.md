@@ -85,7 +85,7 @@ If everything executes correctly there will be 3 new folders inside `terrier/var
 - `nostop` - index created using only the PorterStemmer;
 - `none` - index that involves neither Stemming nor Stopwords removal.
 
-From now on, when invoking a Terrier command, we need to specify on which index we want the command to be executed. That can be done with the inline parameter `-Dterrier.index.path=indexes/{full, nostop, none}`. For example, if we need to print the statistics of the `none` index we will execute: `sh terrier/bin/trec_terrier.sh -i -Dterrier.index.path=indexes/none --printstats`.
+From now on, when invoking a Terrier command, we need to specify on which index we want the command to be executed. That can be done with the inline parameter `-Dterrier.index.path=indexes/{full, nostop, none}`.
 ___
 
 ### `_retrieval.sh`
