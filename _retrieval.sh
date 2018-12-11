@@ -4,7 +4,7 @@
 
 if [ ! -f terrier/bin/trec_terrier.sh ]; then
     echo "[-] terrier/bin/trec_terrier.sh not found!"
-    echo "[-] Please be sure to execute this script just outside of the terrier directory."
+    echo "[-] Please be sure to execute this script from just outside of the terrier directory."
     exit 1
 fi
 

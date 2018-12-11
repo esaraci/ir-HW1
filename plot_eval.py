@@ -55,6 +55,7 @@ for fname in files:
     irecs   = np.linspace(0, 1.01, 11)
     plt.plot(irecs, iprecs, marker=next(markers), label=next(legend_label))
 
+# models should be compared in the 3 areas defined by these vertical lines
 plt.axvline(0.2, ls="--", c="black", lw=0.2)
 plt.axvline(0.8, ls="--", c="black", lw=0.2)
 plt.legend()
