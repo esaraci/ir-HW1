@@ -5,14 +5,10 @@
 Clone the repository
 ```
 $ git clone https://github.com/esaraci/ir-HW1.git && cd ir-HW1
-```
-
-extract Terrier and rename it
-```
 $ tar -xzvf terrier-core-4.4-bin.tar.gz
 $ mv terrier-core-4.4 terrier
 ```
-Download the `TIPSTER.zip` file, extract it and put it in the `data` folder; make sure that the `data` folder has now the following structure.
+put the `TIPSTER` folder in the `data` folder; make sure that the `data` folder has now the following structure.
 
 ```
 data
@@ -22,12 +18,13 @@ data
 │   └── TREC_VOL5
 └── topics.351-400_trec7.txt
 ```
+
 execute `main.sh` after giving it exec permission
 ```
 $ chmod +x main.sh && ./main.sh
 ```
 
-the output files of the whole process can be found in:
+some "text" tables will be sent to `stdout` while the output files of the whole process can be found in:
 
 ```
 terrier/var
@@ -57,6 +54,8 @@ figures
 ├── tukey_precs_10.png    # TODO:
 └── tukey_rprecs.png      # TODO:
 ```
+
+___
 
 ## Documentation
 
