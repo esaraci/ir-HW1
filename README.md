@@ -12,8 +12,7 @@ extract Terrier and rename it
 $ tar -xzvf terrier-core-4.4-bin.tar.gz
 $ mv terrier-core-4.4 terrier
 ```
-
-make sure that the `data` folder has the following structure. The `TIPSTER` directory is not included in this repository and must be downloaded from somewhere else.
+Download the `TIPSTER.zip` file, extract it and put it in the `data` folder; make sure that the `data` folder has now the following structure.
 
 ```
 data
@@ -23,12 +22,12 @@ data
 │   └── TREC_VOL5
 └── topics.351-400_trec7.txt
 ```
-execute `main.sh`
+execute `main.sh` after giving it exec permission
 ```
 $ chmod +x main.sh && ./main.sh
 ```
 
-the outputs of the whole process can be found in:
+the output files of the whole process can be found in:
 
 ```
 terrier/var
@@ -69,4 +68,12 @@ figures
 1. `_evaluation.sh`
 
 ### `_preprocessing.sh`
-This script performs some basic sanity checks and creates the folders needed for the correct execution. It also renames `.1Z, .2Z, .3Z` files to `_{1,2,3}.Z` files and uncompresses them  using `uncompress`. If something goes wrong with these commands then `sanitize_z_format.py` is executed, this python script will rename and uncompress the files in the same way but will not trigger parsing errors (which may happen on some OS + Shell configuration).
+This script performs some basic sanity checks and creates the folders needed for the correct execution. It also renames `.{1,2,3}Z` files to `_{1,2,3}.Z` files and uncompresses them  using `uncompress`. If something goes wrong with these commands then `sanitize_z_format.py` is executed, this python script will rename and uncompress the files in the same way, but it will not trigger parsing errors (which may happen on some OS + Shell configuration).
+
+### `_indexing.sh`
+This script spawns 3 subprocesses making each on of them execute terrier with different parameteres as requesteb by the homeowrk. Follows one of the commands
+```bash
+sh terrier/bin/trec_terrier.sh -i \
+-Dterrier.index.path=indexes/full \
+-Dtermpipelines=Stopwords,PorterStemmer  
+```
