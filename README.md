@@ -68,12 +68,21 @@ figures
 1. `_evaluation.sh`
 
 ### `_preprocessing.sh`
-This script performs some basic sanity checks and creates the folders needed for the correct execution. It also renames `.{1,2,3}Z` files to `_{1,2,3}.Z` files and uncompresses them  using `uncompress`. If something goes wrong with these commands then `sanitize_z_format.py` is executed, this python script will rename and uncompress the files in the same way, but it will not trigger parsing errors (which may happen on some OS + Shell configuration).
+This script performs some basic sanity checks and creates the folders needed for the correct execution. It also renames `.{1,2,3}Z` files to `_{1,2,3}.Z` files and uncompresses them  using `uncompress`. If something goes wrong with these commands then `sanitize_z_format.py` is executed, this python script will rename and uncompress the files in the same manner, but it will not trigger parsing errors (which may happen on some OS + Shell configuration).
+
+___
 
 ### `_indexing.sh`
-This script spawns 3 subprocesses making each on of them execute terrier with different parameteres as requesteb by the homeowrk. Follows one of the commands
+This script spawns 3 subprocesses making each one of them execute terrier with different parameteres as requesteb by the homeowrk. Follows one of the commands
 ```bash
 sh terrier/bin/trec_terrier.sh -i \
 -Dterrier.index.path=indexes/full \
 -Dtermpipelines=Stopwords,PorterStemmer  
 ```
+If everything executes correctly there will be 3 folders insied `terrier/var/indexes` called `full`, `nostop`, and `none`. 
+
+- `full` is the index created using both PorterStemmer and Stopwords removal
+- `nostop` is the index created using only the PorterStemmer
+- `none` does not involve neither Stemming nor Stopwords removal
+
+___
