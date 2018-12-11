@@ -1,4 +1,4 @@
-# ir-HW1
+# Information Retrieval - Homework 1
 
 ### Usage
 
