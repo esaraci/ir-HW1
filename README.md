@@ -68,7 +68,7 @@ ___
 ___
 
 ### `_preprocessing.sh`
-This script performs some basic sanity checks and creates the folders needed for its correct execution. It also renames `.{1,2,3}Z` files to `_{1,2,3}.Z` files and uncompresses them  using `uncompress`. If something goes wrong with these commands then `sanitize_z_format.py` is executed, this python script will rename and uncompress the files in the same manner, but it will not trigger parsing errors (which may occur on some OS + Shell configurations). Finally the script will tell Terrier to create the `collection.spec` file.
+This script performs some basic sanity checks and creates the folders needed for its correct execution. It also renames `.{1,2,3}Z` files to `_{1,2,3}.Z` files and uncompresses them  using `uncompress`. If something goes wrong with these commands then `sanitize_z_format.py` is executed, this python script will rename and uncompress the files in the same manner, but it will not trigger parsing errors (which may occur on some OS + Shell configurations). Finally the script will tell Terrier to update the `collection.spec` file.
 
 ___
 
