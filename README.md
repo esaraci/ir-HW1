@@ -73,7 +73,7 @@ This script performs some basic sanity checks and creates the folders needed for
 ___
 
 ### `_indexing.sh`
-This script spawns 3 subprocesses making each one of them execute Terrier with different parameteres as requesteb by the homework. Follows one of the commands
+This script spawns 3 subprocesses making each one of them execute Terrier with different parameteres as requesteb by the homework. Follows one of the commands:
 ```bash
 sh terrier/bin/trec_terrier.sh -i \
 -Dterrier.index.path=indexes/full \
@@ -81,14 +81,14 @@ sh terrier/bin/trec_terrier.sh -i \
 ```
 If everything executes correctly there will be 3 new folders inside `terrier/var/indexes` called `full`, `nostop`, and `none`. 
 
-- `full` is the index created using both PorterStemmer and Stopwords removal;
-- `nostop` is the index created using only the PorterStemmer;
-- `none` does not involve neither Stemming nor Stopwords removal.
+- `full` - index created using both PorterStemmer and Stopwords removal;
+- `nostop` - index created using only the PorterStemmer;
+- `none` - index that involves neither Stemming nor Stopwords removal.
 
 ___
 
 ### `_retrieval`
-This script executes Terrier with different parameters (i.e. using different retrieval models), this time however, given the fast execution time, the tasks are executed sequentially and not in parallel. Follows one of the commands
+This script executes Terrier with different parameters (i.e. using different retrieval models), this time however, given the fast execution time, the tasks are executed sequentially and not in parallel. In this phase the topics contained in `topics.351-400_trec7.txt` will be queried to our systems which by using different combinations of index + retrieval model will return a list of _presumed to be_ relevant documents for a given topic. Follows one of the commands:
 
 ```
 sh terrier/bin/trec_terrier.sh -r \
@@ -99,6 +99,9 @@ sh terrier/bin/trec_terrier.sh -r \
 -Dtermpipelines=Stopwords,PorterStemmer
 ```
 If everything goes as expected there will be 4 new files (8 actually but we only need 4) inside `terrier/var/results`.
-- `bm25_full`
-- `tf_idf_full`
-- ``
+
+- `bm25_full.res` - run file by the system using BM25 as retrieval model and `full` as index
+- `tf_idf_full.res` - run file by the system using TF_IDF as retrieval model and `full` as index
+- `bm25_nostop.res` - run file by the system using BM25 as retrieval model and `nostop` as index
+- `tf_idf_none.res` - run file by the system using TF_IDF as retrieval model and `none` as index
+
