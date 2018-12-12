@@ -38,3 +38,14 @@
 | m25_nostop | tf_idf_full | -0.0018  | -0.0855 | 0.0818 | False  |
 | m25_nostop | tf_idf_none | -0.0119  | -0.0956 | 0.0717 | False  |
 | f_idf_full | tf_idf_none | -0.0101  | -0.0937 | 0.0736 | False  |
+
+### Multiple Comparison of Means - Tukey HSD,FWER=0.05 
+
+|    group1   |    group2   | meandiff | lower  | upper | reject |
+|:------------|------------:|---------:|-------:|------:|-------:|
+|  bm25_full  | bm25_nostop |  0.012   | -0.159 | 0.183 | False  |
+|  bm25_full  | tf_idf_full |  0.002   | -0.169 | 0.173 | False  |
+|  bm25_full  | tf_idf_none |  -0.012  | -0.183 | 0.159 | False  |
+| bm25_nostop | tf_idf_full |  -0.01   | -0.181 | 0.161 | False  |
+| bm25_nostop | tf_idf_none |  -0.024  | -0.195 | 0.147 | False  |
+| tf_idf_full | tf_idf_none |  -0.014  | -0.185 | 0.157 | False  |
