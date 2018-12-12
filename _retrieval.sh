@@ -25,7 +25,6 @@ echo "[+] -- RETRIEVAL IS STARTING --"
 # -Dtermpipelines       --> pipeline steps (stemmer, stopwords)
 #
 
-
 # performing retrieval for each system
 sh terrier/bin/trec_terrier.sh -r \
 -Dterrier.index.path=indexes/full \
