@@ -4,8 +4,11 @@
 ![prc.png](../figures/prc.png)
 ___
 
-### `iprc.png` - Interpolated Precision Recall Curve
+### `iprc.png` - Interpolated Precision Recall Curve (@ recall levels)
 ![iprc.png](../figures/iprc.png)
+
+The file listed below shows the Precision Recall cruve at different cutoff levesl ('cutoffs = [5, 10, 15, 20, 30, 100, 200, 500, 1000]')
+- `prc.png` - Precision Recall Curve (@ document cutoffs) --> [LINK](../figures/prc.png)
 ___
 
 ### `distr_maps.png` - Distribution of MAP values across the 50 topics (Boxplots)
