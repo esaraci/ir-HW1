@@ -3,7 +3,7 @@
 ### `iprc.png` - Interpolated Precision Recall Curve (@ recall levels)
 ![iprc.png](../figures/iprc.png)
 
-The file listed below shows the Precision Recall cruve at different cutoff levesl ('cutoffs = [5, 10, 15, 20, 30, 100, 200, 500, 1000]')
+The file listed below shows the Precision Recall cruve at different cutoffs (`[5, 10, 15, 20, 30, 100, 200, 500, 1000]`)
 - `prc.png` - [Precision Recall Curve (@ document cutoffs)](../figures/prc.png)
 ___
 
