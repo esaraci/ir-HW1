@@ -10,12 +10,8 @@ ___
 
 ### `distr_maps.png` - Distribution of MAP values across the 50 topics (Boxplots)
 ![prc.png](../figures/distr_maps.png)
-___
 
-### `distr_rprecs.png` - Distribution of RPrecs values across the 50 topics (Boxplots)
-![prc.png](../figures/distr_rprecs.png)
-___
 
-### `distr_precs_10.png` - Distribution of P@10s values across the 50 topics (Boxplots)
-![prc.png](../figures/distr_precs_10.png)
-___
+The following plots show the distribution of two other measures (RPrec and P@10). Since the plots are not that different from the one above, I am just reporting the images link.
+- `distr_rprecs.png` - Distribution of RPrecs values across the 50 topics (Boxplots) --> [CLICK](../figures/distr_rprecs.png)
+- `distr_precs_10.png` - Distribution of P@10s values across the 50 topics (Boxplots) --> [CLICK](../figures/distr_precs_10.png)
