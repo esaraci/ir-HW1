@@ -12,6 +12,15 @@ ___
 ![prc.png](../figures/distr_maps.png)
 
 
-The files listed below show the distributions of RPrec and P@10. These plots are very similar _interpretation-wise_, therefore I am just reporting the link.
-- `distr_rprecs.png` - Distribution of RPrecs values across the 50 topics (Boxplots) --> [CLICK](../figures/distr_rprecs.png)
-- `distr_precs_10.png` - Distribution of P@10s values across the 50 topics (Boxplots) --> [CLICK](../figures/distr_precs_10.png)
+The files listed below show the distributions of RPrec and P@10 which are very similar _interpretation-wise_.
+- `distr_rprecs.png` - Distribution of RPrecs values across the 50 topics (Boxplots) --> [LINK](../figures/distr_rprecs.png)
+- `distr_precs_10.png` - Distribution of P@10s values across the 50 topics (Boxplots) --> [LINK](../figures/distr_precs_10.png)
+___
+
+### `tukey_maps.png` - *TODO:* non l'ho ancora capito
+![prc.png](../figures/tukey_maps.png)
+
+
+The files listed below show the distributions of RPrec and P@10 which are very similar _interpretation-wise_.
+- `distr_rprecs.png` - *TODO:* non l'ho ancora capito --> [LINK](../figures/tukey_rprecs.png)
+- `distr_precs_10.png` - *TODO:* non l'ho ancora capito --> [LINK](../figures/tukey_precs_10.png)
