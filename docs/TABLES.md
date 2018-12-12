@@ -16,7 +16,7 @@
 
 
 
-### Multiple Comparison of Means - Tukey HSD, family-wise error rate (FWER)=0.05  
+### Multiple Comparison of Means (MAP) - Tukey HSD, family-wise error rate (FWER)=0.05  
 
 |    group1   |    group2   | meandiff |  lower  | upper  |  reject |
 |:------------|------------:|---------:|--------:|-------:|--------:|
@@ -28,7 +28,7 @@
 | tf_idf_full | tf_idf_none | -0.0128  | -0.0973 | 0.0716 |  False  |
 
 
-### Multiple Comparison of Means - Tukey HSD, family-wise error rate (FWER)=0.05  
+### Multiple Comparison of Means (RPRECS) - Tukey HSD, family-wise error rate (FWER)=0.05  
 
 |   group1   |    group2   | meandiff |  lower  | upper  | reject |
 |:-----------|------------:|---------:|--------:|-------:|-------:|
@@ -39,7 +39,7 @@
 | m25_nostop | tf_idf_none | -0.0119  | -0.0956 | 0.0717 | False  |
 | f_idf_full | tf_idf_none | -0.0101  | -0.0937 | 0.0736 | False  |
 
-### Multiple Comparison of Means - Tukey HSD,FWER=0.05 
+### Multiple Comparison of Means (P@10) - Tukey HSD, family-wise error rate (FWER)=0.05 
 
 |    group1   |    group2   | meandiff | lower  | upper | reject |
 |:------------|------------:|---------:|-------:|------:|-------:|
