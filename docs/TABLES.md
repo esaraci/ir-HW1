@@ -13,3 +13,28 @@
 | MAP     | F: 0.0997 | p: 0.9601 |
 | RPREC   | F: 0.0567 | p: 0.9822 |
 | P@10    | F: 0.0446 | p: 0.9875 |
+
+
+
+### Multiple Comparison of Means - Tukey HSD,FWER=0.05  
+
+|    group1   |    group2   | meandiff |  lower  | upper  |  reject |
+|:------------|------------:|---------:|--------:|-------:|--------:|
+|  bm25_full  | bm25_nostop |  0.0029  | -0.0816 | 0.0874 |  False  |
+|  bm25_full  | tf_idf_full | -0.0006  | -0.0851 | 0.0838 |  False  |
+|  bm25_full  | tf_idf_none | -0.0135  |  -0.098 | 0.071  |  False  |
+| bm25_nostop | tf_idf_full | -0.0035  |  -0.088 | 0.081  |  False  |
+| bm25_nostop | tf_idf_none | -0.0164  | -0.1008 | 0.0681 |  False  |
+| tf_idf_full | tf_idf_none | -0.0128  | -0.0973 | 0.0716 |  False  |
+
+
+### Multiple Comparison of Means - Tukey HSD,FWER=0.05  
+
+|   group1   |    group2   | meandiff |  lower  | upper  | reject |
+|:-----------|------------:|---------:|--------:|-------:|-------:|
+| bm25_full  | bm25_nostop |  0.0018  | -0.0818 | 0.0854 | False  |
+| bm25_full  | tf_idf_full |   -0.0   | -0.0837 | 0.0836 | False  |
+| bm25_full  | tf_idf_none | -0.0101  | -0.0938 | 0.0735 | False  |
+| m25_nostop | tf_idf_full | -0.0018  | -0.0855 | 0.0818 | False  |
+| m25_nostop | tf_idf_none | -0.0119  | -0.0956 | 0.0717 | False  |
+| f_idf_full | tf_idf_none | -0.0101  | -0.0937 | 0.0736 | False  |
