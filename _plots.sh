@@ -10,7 +10,7 @@ if [ ! -f plot_eval.py ]; then
 fi
 
 
-echo "[+] -- PLOTTING IMAGES --"
+echo "[+] -- PLOTTING TABLES AND IMAGES --"
 
 # creating/deleting figures folder
 if [ -d figures ]
@@ -20,6 +20,6 @@ fi
 mkdir figures
 
 # calling script to print tables and graphs
-python plot_eval.py
+python -W ignore plot_eval.py
 
-echo "[+] -- EVALUATION IS OVER --"
+echo "[+] -- PLOT IS OVER --"

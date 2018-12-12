@@ -165,11 +165,11 @@ anova_maps      = stats.f_oneway(maps[0], maps[1], maps[2], maps[3])
 anova_rprecs    = stats.f_oneway(rprecs[0], rprecs[1], rprecs[2], rprecs[3])
 anova_precs_10  = stats.f_oneway(precs_10[0], precs_10[1], precs_10[2], precs_10[3])
 
-print("|        ANOVA 1-way        | ")
-print("|---------------------------| ")
-print("| MAP   | F: {0:.2f} | p: {1:.2f} |".format(anova_maps[0], anova_maps[1]))
-print("| RPREC | F: {0:.2f} | p: {1:.2f} |".format(anova_rprecs[0], anova_rprecs[1]))
-print("| P@10  | F: {0:.2f} | p: {1:.2f} |".format(anova_precs_10[0], anova_precs_10[1]))
+print("|          ANOVA 1-way          | ")
+print("|-------------------------------| ")
+print("| MAP   | F: {0:.4f} | p: {1:.4f} |".format(anova_maps[0], anova_maps[1]))
+print("| RPREC | F: {0:.4f} | p: {1:.4f} |".format(anova_rprecs[0], anova_rprecs[1]))
+print("| P@10  | F: {0:.4f} | p: {1:.4f} |".format(anova_precs_10[0], anova_precs_10[1]))
 print()
 
 
