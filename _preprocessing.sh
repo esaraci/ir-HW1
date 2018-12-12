@@ -30,12 +30,10 @@ fi
 
 echo "[+] -- PREPROCESSING IS STARTING --"
 
-# the next 4 'find' commands might not work on some OS/shell config
+# the next 4 'find' commands might not work on some OS/shell configs
 # if so comment the find commands and uncomment the python command
 # you can also let them both execute 
 # either way will work as long as one of the two commands works
-
-# echo "[+] Renaming .1Z .2Z .3Z files to .Z"
 find data/TIPSTER -name "*.0Z" -exec rename \.0Z _0.Z {} ';'
 find data/TIPSTER -name "*.1Z" -exec rename \.1Z _1.Z {} ';'
 find data/TIPSTER -name "*.2Z" -exec rename \.2Z _2.Z {} ';'
@@ -43,10 +41,10 @@ find data/TIPSTER -name "*.Z" -exec uncompress {} ';'
 
 # the following command will perform the same steps as the find commands above
 # repeating it wont change anything except computation time
-# this is needed because the find commands do not work on all OS/shell config
+# this is needed because the find commands do not work on all OS/shell configs
 python sanitize_z_format.py
 
-# overwriting current properties
+# overwriting current properties, needed for the indexing step
 mv terrier/etc/terrier.properties terrier/etc/terrier.properties.bak
 cp terrier.properties terrier/etc/terrier.properties
 
