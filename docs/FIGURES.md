@@ -5,7 +5,7 @@
 
 #### Interpretation
 
-The file listed below shows the Precision Recall Curve at different document cutoffs (`[5, 10, 15, 20, 30, 100, 200, 500, 1000]`). While the graph is a little bit more fine graned, there are no major changes in the shapes of the curves.
+The file listed below shows the Precision Recall Curve at different document cutoffs (`[5,10,15,20,30,100,200,500,1000]`). While the graph is a little bit more fine graned, there are no major changes in the shapes of the curves.
 - `prc.png` - [Precision Recall Curve (@ document cutoffs)](../figures/prc.png)
 ___
 
