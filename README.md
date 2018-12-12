@@ -2,7 +2,7 @@
 
 ### Usage
 
-1. Clone the repository
+1. Clone the repository, extract and rename to `terrier`
 ```
 $ git clone https://github.com/esaraci/ir-HW1.git && cd ir-HW1
 $ tar -xzvf terrier-core-4.4-bin.tar.gz
