@@ -2,12 +2,14 @@
 # date  : 03/12/18
 
 
+# checking if it's being executed from the correct dir
 if [ ! -f terrier/bin/trec_terrier.sh ]; then
     echo "[-] terrier/bin/trec_terrier.sh not found!"
     echo "[-] Please be sure to execute this script just outside of the terrier directory."
     exit 1
 fi
 
+# creating/deleting folders needed for correct execution
 if [ ! -d "terrier/var/indexes" ]
 then
     mkdir terrier/var/indexes
@@ -31,7 +33,14 @@ then
 fi
 mkdir terrier/var/indexes/none
 
+
 echo "[+] -- INDEXING IS STARTING --"
+
+# command params
+#
+# -Dterrier.index.path  --> name of the index we are creating
+# -Dtermpipelines       --> pipeline steps (stemmer, stopwords)
+#
 
 index_1() {
 
@@ -54,8 +63,10 @@ index_3() {
     -Dtermpipelines=
 }
 
-
+# executing them concurrently
 index_1 & index_2 & index_3
+
+# waiting for the processes to finish
 wait
 
 echo "[+] -- INDEXING IS OVER --"
