@@ -8,7 +8,7 @@ $ git clone https://github.com/esaraci/ir-HW1.git && cd ir-HW1
 $ tar -xzvf terrier-core-4.4-bin.tar.gz
 $ mv terrier-core-4.4 terrier
 ```
-put the `TIPSTER` folder (qrels and topics too if not present) in the `data` directory; make sure that the `data` directory has now the following structure.
+put the `TIPSTER` folder (qrels and topics too) in the `data` directory; make sure that the `data` directory has now the following structure:
 
 ```
 data
@@ -54,3 +54,7 @@ figures
 ├── tukey_precs_10.png    # TODO:
 └── tukey_rprecs.png      # TODO:
 ```
+
+Scripts documentation [HERE](docs/SCRIPTS.md)
+Figures documentation [HERE](docs/FIGURES.md)
+Tables documentation [HERE](docs/TABLES.md)
