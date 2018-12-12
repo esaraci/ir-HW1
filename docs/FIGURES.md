@@ -12,6 +12,6 @@ ___
 ![prc.png](../figures/distr_maps.png)
 
 
-The files listed below show the distribution of RPrec and P@10 in the same manner. Since the plots are not that different from the one above, I am just reporting the images link.
+The files listed below show the distributions of RPrec and P@10. These plots are very similar _interpretation-wise_, therefore I am just reporting the link.
 - `distr_rprecs.png` - Distribution of RPrecs values across the 50 topics (Boxplots) --> [CLICK](../figures/distr_rprecs.png)
 - `distr_precs_10.png` - Distribution of P@10s values across the 50 topics (Boxplots) --> [CLICK](../figures/distr_precs_10.png)
