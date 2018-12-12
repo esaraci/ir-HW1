@@ -14,7 +14,7 @@ ___
 
 #### Interpretation
 
-The files listed below show the distributions of RPrec and P@10 which are very similar _interpretation-wise_.
+The files listed below show the distributions of RPrec and P@10 which are very similar to the graph above _interpretation-wise_.
 - `distr_rprecs.png` - [Distribution of RPrecs values across the 50 topics (Boxplots)](../figures/distr_rprecs.png)
 - `distr_precs_10.png` - [Distribution of P@10s values across the 50 topics (Boxplots)](../figures/distr_precs_10.png)
 ___
