@@ -8,7 +8,7 @@ $ git clone https://github.com/esaraci/ir-HW1.git && cd ir-HW1
 $ tar -xzvf terrier-core-4.4-bin.tar.gz
 $ mv terrier-core-4.4 terrier
 ```
-put the `TIPSTER` folder in the `data` folder; make sure that the `data` folder has now the following structure.
+put the `TIPSTER` folder (qrels and topics too if not present) in the `data` directory; make sure that the `data` directory has now the following structure.
 
 ```
 data
