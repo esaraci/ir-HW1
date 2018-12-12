@@ -19,7 +19,7 @@ echo "[+] -- RETRIEVAL IS STARTING --"
 # command params
 # 
 # -Dterrier.index.path  --> index we are referring to               
-# -Dterrier.results     --> where to save output files
+# -Dterrier.results     --> where to save output files (this has been put in terrier.properties)
 # -Dtrec.results.file   --> name of the output file
 # -Dtrec.model          --> retrieval model
 # -Dtermpipelines       --> pipeline steps (stemmer, stopwords)
