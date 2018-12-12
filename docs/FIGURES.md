@@ -1,9 +1,5 @@
 ## Figures
 
-### `prc.png` - Precision Recall Curve
-![prc.png](../figures/prc.png)
-___
-
 ### `iprc.png` - Interpolated Precision Recall Curve (@ recall levels)
 ![iprc.png](../figures/iprc.png)
 
