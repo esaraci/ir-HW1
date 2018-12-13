@@ -5,7 +5,7 @@
 
 #### Interpretation
 The shape of the curves is very much expected,
-> enforcing the notion that as more relevant documents are retrieved (recall increases), the more nonrelevant documents are retrieved (precision decreases) [1](https://trec.nist.gov/pubs/trec16/appendices/measures.pdf)
+> enforcing the notion that as more **relevant** documents are retrieved (recall increases), the more **nonrelevant** documents are retrieved (precision decreases) [1](https://trec.nist.gov/pubs/trec16/appendices/measures.pdf)
 
 
 
