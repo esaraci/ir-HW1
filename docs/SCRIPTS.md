@@ -65,4 +65,4 @@ ___
 
 ### `_plots.sh`
 
-This script prints some tables on `stdout` and saves some graphs to better visualize the differences in performance among the different systems. Plots are saved in the `figures` folder. Refer to [FIGURES.md](FIGURES.md) and/or [TABLES.md](TABLES.md) for the results.
+This script prints some tables on `stdout` and saves some graphs to better visualize the differences in performance among the systems. Plots are saved in the `figures` folder. Refer to [FIGURES.md](FIGURES.md) and/or [TABLES.md](TABLES.md) for the results.
