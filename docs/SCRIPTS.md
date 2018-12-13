@@ -17,7 +17,7 @@ This script performs some basic sanity checks and creates the folders needed for
 ___
 
 ### `_indexing.sh`
-This script spawns 3 subprocesses making each one of them execute Terrier with different parameteres as requesteb by the homework. Follows one of the commands:
+This script spawns 3 subprocesses making each one of them execute Terrier with different parameteres as requested by the homework. Follows one of the commands:
 ```bash
 sh terrier/bin/trec_terrier.sh -i \
 -Dterrier.index.path=indexes/full \
