@@ -60,3 +60,4 @@ ___
 - Scripts documentation [HERE](docs/SCRIPTS.md)
 - Figures documentation [HERE](docs/FIGURES.md)
 - Tables documentation [HERE](docs/TABLES.md)
+- `terrier.properties` [HERE](terrier.properties)
