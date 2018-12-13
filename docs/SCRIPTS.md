@@ -7,7 +7,8 @@
 1. `_preprocessing.sh`;
 1. `_indexing.sh`;
 1. `_retrieval.sh`;
-1. `_evaluation.sh`.
+1. `_evaluation.sh`;
+1. `_plots.sh`.
 ___
 
 ### `_preprocessing.sh`
