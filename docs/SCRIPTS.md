@@ -33,7 +33,7 @@ From now on, when invoking a Terrier command, we need to specify on which index 
 ___
 
 ### `_retrieval.sh`
-This script executes the retrieval through Terrier by specifyin different retrieval models. In this phase the topics contained in `data/topics.351-400_trec7.txt` will be queried to our systems which by using different combinations of index + retrieval model will return a list of documents deemed to be relevant for a given topic. Follows, as an example, one of the commands:
+This script executes the retrieval step through Terrier by specifying different retrieval models. In this phase the topics contained in `data/topics.351-400_trec7.txt` will be queried to our systems which by using different combinations of index + retrieval model will then return a list of documents deemed to be relevant for a given topic. Follows, as an example, one of the commands:
 
 ```
 sh terrier/bin/trec_terrier.sh -r \
