@@ -56,10 +56,10 @@ ___
 This script tells Terrier to compare the `.res` files in `terrier/var/results` against the ground truth represented by `data/qrels.trec7.txt`. Terrier calls `trec_eval.sh` under the hood which will compute some useful evaluation measures for each system and for each topic. 
 
 If no errors arise there will be 4 new `.txt` files inside `terrier/var/evaluation`.
-- `bm25_full.txt` - evaluation measure for the system using BM25 as retrieval model and `full` as index;
-- `tf_idf_full.txt` - evaluation measure for the system using TF_IDF as retrieval model and `full` as index;
-- `bm25_nostop.txt` - evaluation measure for the system using BM25 as retrieval model and `nostop` as index;
-- `tf_idf_none.txt` - evaluation measure for the system using TF_IDF as retrieval model and `none` as index.
+- `bm25_full.txt` - evaluation measures for the system using BM25 as retrieval model and `full` as index;
+- `tf_idf_full.txt` - evaluation measures for the system using TF_IDF as retrieval model and `full` as index;
+- `bm25_nostop.txt` - evaluation measures for the system using BM25 as retrieval model and `nostop` as index;
+- `tf_idf_none.txt` - evaluation measures for the system using TF_IDF as retrieval model and `none` as index.
 
 ___
 
