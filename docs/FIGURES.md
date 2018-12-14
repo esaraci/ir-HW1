@@ -20,7 +20,7 @@ ___
 
 #### Interpretation
 
-Unfortunately the distribution of the measured MAP values is not that insightful. All systems performances are very close to each other which suggests that there is no _significant_ difference among them. At later stages it is actually verified that no system brings a statistically _significant_ improvement over the others. 
+Unfortunately the distribution of the measured MAP (AP is the correct term) values on all the topics  is not that insightful. All systems performances are very close to each other which suggests that there is no _significant_ difference among them. At later stages it is actually verified that no system brings a statistically _significant_ improvement over the others. 
 
 The files listed below show the distributions of RPrec and P@10 which are very similar to the graph above _interpretation-wise_.
 - `distr_rprecs.png` - [Distribution of RPrecs values across the 50 topics (Boxplots)](../figures/distr_rprecs.png)
