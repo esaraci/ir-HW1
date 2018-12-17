@@ -28,7 +28,7 @@ files = ["bm25_full.txt", "tf_idf_full.txt", "bm25_nostop.txt", "tf_idf_none.txt
 # irecs       = np.linspace(0, 1.01, 11)
 # cutoffs     = [5, 10, 15, 20, 30, 100, 200, 500, 1000]
 
-markers         = itertools.cycle(("v", "^", "s", "o"))
+markers         = itertools.cycle(("s", "^", "v", "o"))
 legend_label    = itertools.cycle(("BM25 - PorterStemmer + Stopwords",
                                     "TF_IDF - PorterStemmer + Stopwords",
                                     "BM25 - PorterStemmer, NO Stopwords",
@@ -130,7 +130,6 @@ maps        = np.array(maps)
 rprecs      = np.array(rprecs)
 precs_10    = np.array(precs_10)
 
-
 #####################################
 # BOXPLOTS FOR MAP, RPREC AND PREC@10
 #####################################
@@ -161,9 +160,11 @@ plt.clf()
 ######################################
 # ANOVA 1-WAY
 ######################################
+
 anova_maps      = stats.f_oneway(maps[0], maps[1], maps[2], maps[3])
 anova_rprecs    = stats.f_oneway(rprecs[0], rprecs[1], rprecs[2], rprecs[3])
 anova_precs_10  = stats.f_oneway(precs_10[0], precs_10[1], precs_10[2], precs_10[3])
+
 
 print("|          ANOVA 1-way          | ")
 print("|-------------------------------| ")
@@ -187,6 +188,7 @@ names = np.append(names, np.repeat("tf_idf_none", 50))
 maps.shape      = (200,)
 rprecs.shape    = (200,)
 precs_10.shape  = (200,)
+
 
 tukey_maps      = pairwise_tukeyhsd(maps, names)
 tukey_rprecs    = pairwise_tukeyhsd(rprecs, names)

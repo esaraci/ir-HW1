@@ -11,7 +11,7 @@ fi
 
 # overwriting current properties
 # i need to do this again in this step
-cp terrier.properties data/etc/terrier.properties
+cp terrier.properties terrier/etc/terrier.properties
 
 
 echo "[+] -- RETRIEVAL IS STARTING --"
