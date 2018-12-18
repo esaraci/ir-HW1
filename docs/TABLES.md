@@ -30,14 +30,14 @@
 
 ### Multiple Comparison of Means (RPRECS) - Tukey HSD, family-wise error rate (FWER)=0.05  
 
-|   group1   |    group2   | meandiff |  lower  | upper  | reject |
-|:----------:|:-----------:|---------:|--------:|-------:|-------:|
-| bm25_full  | bm25_nostop |  0.0018  | -0.0818 | 0.0854 | False  |
-| bm25_full  | tf_idf_full |   -0.0   | -0.0837 | 0.0836 | False  |
-| bm25_full  | tf_idf_none | -0.0101  | -0.0938 | 0.0735 | False  |
-| m25_nostop | tf_idf_full | -0.0018  | -0.0855 | 0.0818 | False  |
-| m25_nostop | tf_idf_none | -0.0119  | -0.0956 | 0.0717 | False  |
-| f_idf_full | tf_idf_none | -0.0101  | -0.0937 | 0.0736 | False  |
+|    group1   |    group2   | meandiff |  lower  | upper  | reject |
+|:------------|:-----------:|---------:|--------:|-------:|-------:|
+|  bm25_full  | bm25_nostop |  0.0018  | -0.0818 | 0.0854 | False  |
+|  bm25_full  | tf_idf_full |   -0.0   | -0.0837 | 0.0836 | False  |
+|  bm25_full  | tf_idf_none | -0.0101  | -0.0938 | 0.0735 | False  |
+| bm25_nostop | tf_idf_full | -0.0018  | -0.0855 | 0.0818 | False  |
+| bm25_nostop | tf_idf_none | -0.0119  | -0.0956 | 0.0717 | False  |
+| tf_idf_full | tf_idf_none | -0.0101  | -0.0937 | 0.0736 | False  |
 
 ### Multiple Comparison of Means (P@10) - Tukey HSD, family-wise error rate (FWER)=0.05 
 
