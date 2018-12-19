@@ -56,8 +56,8 @@ for fname in files:
     plt.plot(irecs, iprecs, marker=next(markers), label=next(legend_label))
 
 # models should be compared in the 3 areas defined by these vertical lines
-plt.axvline(0.2, ls="--", c="black", lw=0.2)
-plt.axvline(0.8, ls="--", c="black", lw=0.2)
+plt.axvline(0.2, ls="--", c="grey", lw=0.8)
+plt.axvline(0.8, ls="--", c="grey", lw=0.8)
 plt.legend()
 # plt.show()
 plt.savefig("./figures/iprc.png")
@@ -71,7 +71,7 @@ plt.clf()
 #################################################
 
 topic = "all"
-plt.xlim(0, 0.6)
+# plt.xlim(0, 0.8)
 plt.ylim(0, 0.6)
 plt.xlabel("Recall")
 plt.ylabel("Precision")
@@ -129,6 +129,7 @@ for fname in files:
 maps        = np.array(maps)
 rprecs      = np.array(rprecs)
 precs_10    = np.array(precs_10)
+
 
 #####################################
 # BOXPLOTS FOR MAP, RPREC AND PREC@10

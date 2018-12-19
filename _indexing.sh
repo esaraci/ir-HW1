@@ -50,7 +50,7 @@ index_1() {
 }
 
 index_2() {
-        
+
     sh terrier/bin/trec_terrier.sh -i \
     -Dterrier.index.path=indexes/nostop \
     -Dtermpipelines=PorterStemmer
