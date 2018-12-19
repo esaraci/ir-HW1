@@ -191,9 +191,10 @@ rprecs.shape    = (200,)
 precs_10.shape  = (200,)
 
 
-tukey_maps      = pairwise_tukeyhsd(maps, names)
-tukey_rprecs    = pairwise_tukeyhsd(rprecs, names)
-tukey_precs_10  = pairwise_tukeyhsd(precs_10, names)
+alpha           = .05
+tukey_maps      = pairwise_tukeyhsd(maps, names, alpha)
+tukey_rprecs    = pairwise_tukeyhsd(rprecs, names, alpha)
+tukey_precs_10  = pairwise_tukeyhsd(precs_10, names, alpha)
 
 print(tukey_maps)
 print()
