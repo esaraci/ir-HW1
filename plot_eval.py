@@ -91,11 +91,11 @@ plt.clf()
 
 ##################################################
 # METRICS REQUIRED BY HW1
-# TOPIC = ALL --> these are all means
-# @aps      = Mean Average Precision
+# topic     = 'all'
+# @maps     = Mean Average Precision
 # @rprecs   = prec @ RecallBase
 # @precs_10 = prec @ 10 (top-10 docs)
-# they all contain 4 values, one for each system
+# ^ they contain 4 values, one for each system
 ##################################################
 
 maps        = []
