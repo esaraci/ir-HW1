@@ -9,7 +9,7 @@ The shape of the curves is very much expected,
 
 At `recall=0.2` and `recall=0.8` I drew two vertical dashed grey lines to ease the comparison among the systems (as suggested in [[1]](https://trec.nist.gov/pubs/trec16/appendices/measures.pdf)).
 
-Judging by the plot we can see that performance levels are more or less the same except for the one system that performs slightly worse than the others in range `[0.2, 0.8]`.
+Judging by the plot we can see that performance levels are more or less the same except for the one system (red) that performs slightly worse than the others in range `[0, 0.8]`.
 
 The file listed below shows the Precision Recall Curve at different document cutoffs (`[5,10,15,20,30,100,200,500,1000]`). There are no major changes in the shapes of the curves with respect to the graph above.
 - `prc.png` - [Precision Recall Curve (@ document cutoffs)](../figures/prc.png)
