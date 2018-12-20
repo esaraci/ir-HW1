@@ -53,5 +53,5 @@ ___
 
 - Scripts documentation [HERE](docs/SCRIPTS.md)
 - Figures documentation [HERE](docs/FIGURES.md)
-- Tables documentation [HERE]()
+- Tables documentation [you are here]
 - `terrier.properties` [HERE](terrier.properties)

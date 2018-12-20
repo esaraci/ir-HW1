@@ -69,7 +69,7 @@ To better visualize the difference in terms of performace among the systems this
 Tables are printed to `stdout` while plots are saved in the `figures` folder. Refer to [FIGURES.md](FIGURES.md) and/or [TABLES.md](TABLES.md) for the results.
 ___
 
-- Scripts documentation [HERE](docs/SCRIPTS.md)
+- Scripts documentation [you are here]
 - Figures documentation [HERE](docs/FIGURES.md)
 - Tables documentation [HERE](docs/TABLES.md)
 - `terrier.properties` [HERE](terrier.properties)
