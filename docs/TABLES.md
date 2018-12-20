@@ -49,3 +49,9 @@
 | bm25_nostop | tf_idf_full |  -0.01   | -0.181 | 0.161 | False  |
 | bm25_nostop | tf_idf_none |  -0.024  | -0.195 | 0.147 | False  |
 | tf_idf_full | tf_idf_none |  -0.014  | -0.185 | 0.157 | False  |
+___
+
+- Scripts documentation [HERE](docs/SCRIPTS.md)
+- Figures documentation [HERE](docs/FIGURES.md)
+- Tables documentation [HERE](docs/TABLES.md)
+- `terrier.properties` [HERE](terrier.properties)

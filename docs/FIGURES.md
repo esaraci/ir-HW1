@@ -20,10 +20,11 @@ ___
 
 #### Interpretation
 
-Unfortunately the distribution of the measured MAP values on all the topics  is not that insightful. All systems' performances are very close to each other which suggests that there is no empirical proof of a _significant_ difference among them. At later stages it is actually verified that no system brings a statistically _significant_ improvement over the others.
-Please note that "MAP" is just used for consistency with Terrier, the actual measure is "AP" or "Average Preicsion".
+Unfortunately the distribution of the measured MAP values on all the topics  is not that insightful. All systems' performances are very similar to each other which suggests that there is no empirical proof of a _significant_ difference among them. At later stages, it is actually verified that no system brings a (statistically) _significant_ improvement over the others.
 
-The files listed below show the distributions of RPrec and P@10 which are very similar to the graph above _interpretation-wise_.
+Please note that the name "MAP" is just used for consistency with Terrier, the actual measure is "AP" or "Average Precision".
+
+The files listed below show the distributions of RPrec and P@10 for the same context, since they are very similar (_intepretation_-wise) to the graph above no further documentation is provided.
 - `distr_rprecs.png` - [Distribution of RPrecs values across the 50 topics (Boxplots)](../figures/distr_rprecs.png)
 - `distr_precs_10.png` - [Distribution of P@10s values across the 50 topics (Boxplots)](../figures/distr_precs_10.png)
 ___
@@ -36,3 +37,8 @@ ___
 The files listed below show the *TODO: non l'ho ancora* capito which are very similar _interpretation-wise_.
 - `distr_rprecs.png` - [*TODO: non l'ho ancora capito*](../figures/tukey_rprecs.png)
 - `distr_precs_10.png` - [*TODO:* non l'ho ancora capito*](../figures/tukey_precs_10.png)
+___
+- Scripts documentation [HERE](docs/SCRIPTS.md)
+- Figures documentation [HERE](docs/FIGURES.md)
+- Tables documentation [HERE](docs/TABLES.md)
+- `terrier.properties` [HERE](terrier.properties)
