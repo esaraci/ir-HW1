@@ -39,6 +39,8 @@ Tukey's HSD test tells us that none of the system is significantly better than t
 - the system marked in blue is the system I thought would perform slightly better than the others in all measures;
 - grey systems are those who are not significantly different from the blue one; 
 - red systems are those significantly different from the blue system, their confidence intervals would be disjoint. (none in this homework)
+
+Figures listed below show the same graph but for different measures. The interpretation is fundamentally the same.
 - `distr_rprecs.png` - [Confidence intervals for each system on RPrecs](../figures/tukey_rprecs.png)
 - `distr_precs_10.png` - [Confidence intervals for each system on P@10](../figures/tukey_precs_10.png)
 ___
