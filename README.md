@@ -51,9 +51,9 @@ figures
 ├── distr_rprecs.png      # boxplots of RPrecs values across the 50 topics for the 4 systems
 ├── iprc.png              # interpolated precision-recall curve (for topic=all) at different recall levels
 ├── prc.png               # precision recall curve (for topic=all), cutoffs at [5,10,15,20,30,50,100,200,500,1000]
-├── tukey_maps.png        # TODO:
-├── tukey_precs_10.png    # TODO:
-└── tukey_rprecs.png      # TODO:
+├── tukey_maps.png        # tukey's HSD test on MAPs (APs) on all systems
+├── tukey_precs_10.png    # tukey's HSD test on P@10s on all systems
+└── tukey_rprecs.png      # tukey's HSD test on RPrecs on all systems
 ```
 ___
 - Main documentation [you are here]
