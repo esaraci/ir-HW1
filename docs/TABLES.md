@@ -51,6 +51,7 @@
 | tf_idf_full | tf_idf_none |  -0.014  | -0.185 | 0.157 | False  |
 ___
 
+- Main documentation [HERE](README.md)
 - Scripts documentation [HERE](docs/SCRIPTS.md)
 - Figures documentation [HERE](docs/FIGURES.md)
 - Tables documentation [you are here]

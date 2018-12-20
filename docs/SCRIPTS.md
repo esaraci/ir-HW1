@@ -68,7 +68,7 @@ ___
 To better visualize the difference in terms of performace among the systems this script displays graphs and tables.
 Tables are printed to `stdout` while plots are saved in the `figures` folder. Refer to [FIGURES.md](FIGURES.md) and/or [TABLES.md](TABLES.md) for the results.
 ___
-
+- Main documentation [HERE](README.md)
 - Scripts documentation [you are here]
 - Figures documentation [HERE](docs/FIGURES.md)
 - Tables documentation [HERE](docs/TABLES.md)
