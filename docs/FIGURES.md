@@ -38,8 +38,8 @@ The files listed below show the *TODO: non l'ho ancora* capito which are very si
 - `distr_rprecs.png` - [*TODO: non l'ho ancora capito*](../figures/tukey_rprecs.png)
 - `distr_precs_10.png` - [*TODO:* non l'ho ancora capito*](../figures/tukey_precs_10.png)
 ___
-- Main documentation [HERE](README.md)
-- Scripts documentation [HERE](docs/SCRIPTS.md)
+- Main documentation [HERE](../README.md)
+- Scripts documentation [HERE](SCRIPTS.md)
 - Figures documentation [you are here]
-- Tables documentation [HERE](docs/TABLES.md)
-- `terrier.properties` [HERE](terrier.properties)
+- Tables documentation [HERE](TABLES.md)
+- `terrier.properties` [HERE](../terrier.properties)
