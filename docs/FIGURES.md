@@ -34,7 +34,7 @@ ___
 
 #### Interpretation
 
-Tukey's HSD test tells us that none of the system is significantly better than the others (at significance level 0.05). That said we see however a trend in which the system that uses `TF_IDF` as a retrieval model with no stemming nor stopword removal (i.e. `tf_idf_none`) performs constantly worse then the others. The same behavior is reported in the figures listed below for RPrec and P@10. As for tukey's result we can not really say that there are different groups of systems. 
+Tukey's HSD test tells us that none of the system is significantly better than the others (at significance level 0.05). That said we see however a trend in which the system that uses TF_IDF as a retrieval model with no stemming nor stopword removal (i.e. `tf_idf_none`) performs constantly worse then the others. The same behavior is reported in the figures listed below for RPrec and P@10. As for tukey's result we can not really say that there are different groups of systems. 
 
 - the system marked in blue is the system I thought would perform slightly better than the others in all measures;
 - grey systems are those who are not significantly different from the blue one; 
