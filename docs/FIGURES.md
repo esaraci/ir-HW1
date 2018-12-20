@@ -24,19 +24,20 @@ Unfortunately the distribution of the measured MAP values on all the topics  is 
 
 Please note that the name "MAP" is just used for consistency with Terrier, the actual measure is "AP" or "Average Precision".
 
-The files listed below show the distributions of RPrec and P@10 for the same context, since they are very similar (_intepretation_-wise) to the graph above no further documentation is provided.
+The files listed below show the distributions of RPrec and P@10 for the same context, since they are very similar (_intepretation_-wise) to the graph above, no further documentation is provided for them.
 - `distr_rprecs.png` - [Distribution of RPrecs values across the 50 topics (Boxplots)](../figures/distr_rprecs.png)
 - `distr_precs_10.png` - [Distribution of P@10s values across the 50 topics (Boxplots)](../figures/distr_precs_10.png)
 ___
 
-### `tukey_maps.png` - TODO: non l'ho ancora capito
+### `tukey_maps.png` - Confidence intervals for each system on MAP
 ![prc.png](../figures/tukey_maps.png)
 
 #### Interpretation
 
-The files listed below show the *TODO: non l'ho ancora* capito which are very similar _interpretation-wise_.
-- `distr_rprecs.png` - [*TODO: non l'ho ancora capito*](../figures/tukey_rprecs.png)
-- `distr_precs_10.png` - [*TODO:* non l'ho ancora capito*](../figures/tukey_precs_10.png)
+Tukey's HSD test tells us that none of the system is significantly better than the others (at significance level 0.05). That said we see however a trend in which the system that uses `TF_IDF` as a retrieval model with no stemming nor stopword removal performs constantly worse then the others. The same behavior is reported in the figures listed below for RPrec and P@10. As for tukey's result we can not really say that there are different groups of systems. The system marked in blue is the system I thought would perform slightly better than the others in all measures; grey systems are those who are not significantly different from the blue one; systems that would sit far away from the confidence intervals of the blue one (significantly different) would be marked in red.
+
+- `distr_rprecs.png` - [Confidence intervals for each system on RPREC](../figures/tukey_rprecs.png)
+- `distr_precs_10.png` - [Confidence intervals for each system on P@10](../figures/tukey_precs_10.png)
 ___
 - Main documentation [HERE](../README.md)
 - Scripts documentation [HERE](SCRIPTS.md)
