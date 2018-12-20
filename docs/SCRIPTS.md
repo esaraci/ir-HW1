@@ -10,7 +10,7 @@
 1. `_evaluation.sh`;
 1. `_plots.sh`.
 
-**Warning**: although I extensively used the scripts on their own, I do not necessarily recommend running them this way. Use `_main.sh` instead. Comments are provided for each script.
+**Warning**: although I extensively used the scripts on their own, I do not necessarily recommend running them this way. Use `_main.sh` or execute them in the suggested order. Comments are provided for each script.
 ___
 
 ### `_preprocessing.sh`
