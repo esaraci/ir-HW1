@@ -109,6 +109,8 @@ for fname in files:
     precs_10.append([float(x[2]) for x in evals if x[1] == topic and x[0] == "P_10"][0])
 
 
+# github markdown
+print("### MAP, RPrec, P@10 across the different systems for `topic=all`")
 print("\n" + tabulate(list(zip(legend_label, maps, rprecs, precs_10)), ["Model", "MAP", "RPrec", "P@10"], tablefmt="pipe") + "\n")
 
 
@@ -166,12 +168,13 @@ anova_maps      = stats.f_oneway(maps[0], maps[1], maps[2], maps[3])
 anova_rprecs    = stats.f_oneway(rprecs[0], rprecs[1], rprecs[2], rprecs[3])
 anova_precs_10  = stats.f_oneway(precs_10[0], precs_10[1], precs_10[2], precs_10[3])
 
-
-print("|          ANOVA 1-way          | ")
-print("|-------------------------------| ")
-print("| MAP   | F: {0:.4f} | p: {1:.4f} |".format(anova_maps[0], anova_maps[1]))
-print("| RPREC | F: {0:.4f} | p: {1:.4f} |".format(anova_rprecs[0], anova_rprecs[1]))
-print("| P@10  | F: {0:.4f} | p: {1:.4f} |".format(anova_precs_10[0], anova_precs_10[1]))
+# github markdown
+print("### ANOVA-1-WAY results for MAP, RPREC, P@10\n")
+print("| Measure |   F-stat   |   p-value  | ")
+print("|:--------|-----------:|-----------:| ")
+print("| MAP     | F: {0:.4f} | p: {1:.4f} |".format(anova_maps[0], anova_maps[1]))
+print("| RPREC   | F: {0:.4f} | p: {1:.4f} |".format(anova_rprecs[0], anova_rprecs[1]))
+print("| P@10    | F: {0:.4f} | p: {1:.4f} |".format(anova_precs_10[0], anova_precs_10[1]))
 print()
 
 
@@ -196,11 +199,14 @@ tukey_maps      = pairwise_tukeyhsd(maps, names, alpha)
 tukey_rprecs    = pairwise_tukeyhsd(rprecs, names, alpha)
 tukey_precs_10  = pairwise_tukeyhsd(precs_10, names, alpha)
 
+# github markdown
+print("```")
 print(tukey_maps)
 print()
 print(tukey_rprecs)
 print()
 print(tukey_precs_10)
+print("```")
 
 # saving plots
 tukey_maps.plot_simultaneous("bm25_full").savefig("./figures/tukey_maps.png")
