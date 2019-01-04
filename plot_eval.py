@@ -61,6 +61,7 @@ plt.axvline(0.8, ls="--", c="grey", lw=0.8)
 plt.legend()
 # plt.show()
 plt.savefig("./figures/iprc.png")
+plt.savefig("./figures/iprc.pdf")
 plt.clf()
 
 
@@ -86,6 +87,7 @@ for fname in files:
 plt.legend()
 #plt.show()
 plt.savefig("./figures/prc.png")
+plt.savefig("./figures/prc.pdf")
 plt.clf()
 
 
@@ -142,6 +144,7 @@ plt.title("Distributions of MAPs")
 plt.xlabel("MAP")
 plt.tight_layout()
 plt.savefig("./figures/distr_maps.png")
+plt.savefig("./figures/distr_maps.pdf")
 plt.clf()
 
 plt.boxplot([rprecs[0], rprecs[1], rprecs[2], rprecs[3]], vert=False, labels=["bm25_full", "tf_idf_full", "bm25_nostop", "tf_idf_none"])
@@ -149,6 +152,7 @@ plt.title("Distributions of RPrecs")
 plt.xlabel("RPrec")
 plt.tight_layout()
 plt.savefig("./figures/distr_rprecs.png")
+plt.savefig("./figures/distr_rprecs.pdf")
 plt.clf()
 
 plt.boxplot([precs_10[0], precs_10[1], precs_10[2], precs_10[3]], vert=False, labels=["bm25_full", "tf_idf_full", "bm25_nostop", "tf_idf_none"])
@@ -156,6 +160,7 @@ plt.title("Distributions of P@10s")
 plt.xlabel("P@10")
 plt.tight_layout()
 plt.savefig("./figures/distr_precs_10.png")
+plt.savefig("./figures/distr_precs_10.pdf")
 plt.clf()
 
 
@@ -210,5 +215,8 @@ print("```")
 
 # saving plots
 tukey_maps.plot_simultaneous("bm25_full").savefig("./figures/tukey_maps.png")
+tukey_maps.plot_simultaneous("bm25_full").savefig("./figures/tukey_maps.pdf")
 tukey_rprecs.plot_simultaneous("bm25_full").savefig("./figures/tukey_rprecs.png")
+tukey_rprecs.plot_simultaneous("bm25_full").savefig("./figures/tukey_rprecs.pdf")
 tukey_precs_10.plot_simultaneous("bm25_full").savefig("./figures/tukey_precs_10.png")
+tukey_precs_10.plot_simultaneous("bm25_full").savefig("./figures/tukey_precs_10.pdf")
