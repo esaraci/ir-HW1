@@ -2,59 +2,53 @@
 
 | Model                                   |    MAP |   RPrec |   P@10 |
 |:----------------------------------------|-------:|--------:|-------:|
-| BM25 - PorterStemmer + Stopwords        | 0.2126 |  0.2705 |  0.484 |
-| TF_IDF - PorterStemmer + Stopwords      | 0.212  |  0.2725 |  0.48  |
-| BM25 - PorterStemmer, NO Stopwords      | 0.2108 |  0.274  |  0.474 |
-| TF_IDF - NO PorterStemmer, NO Stopwords | 0.1875 |  0.246  |  0.43  |
+| BM25 - PorterStemmer + Stopwords        | 0.1828 |  0.2391 |  0.418 |
+| TF_IDF - PorterStemmer + Stopwords      | 0.1821 |  0.2391 |  0.42  |
+| BM25 - PorterStemmer, NO Stopwords      | 0.1857 |  0.2409 |  0.43  |
+| TF_IDF - NO PorterStemmer, NO Stopwords | 0.1693 |  0.229  |  0.406 |
 
 ### ANOVA-1-WAY results for MAP, RPREC, P@10
 
 | Measure |   F-stat   |   p-value  | 
 |:--------|-----------:|-----------:| 
-| MAP     | F: 0.2699 | p: 0.8471 |
-| RPREC   | F: 0.3508 | p: 0.7886 |
-| P@10    | F: 0.3578 | p: 0.7836 |
+| MAP     | F: 0.0997 | p: 0.9601 |
+| RPREC   | F: 0.0567 | p: 0.9822 |
+| P@10    | F: 0.0446 | p: 0.9875 |
 
 ```
   Multiple Comparison of Means - Tukey HSD,FWER=0.05  
 ======================================================
    group1      group2   meandiff  lower  upper  reject
 ------------------------------------------------------
- bm25_full  bm25_nostop -0.0018  -0.0877 0.0842 False 
- bm25_full  tf_idf_full -0.0005  -0.0865 0.0855 False 
- bm25_full  tf_idf_none -0.0251  -0.1111 0.0609 False 
-bm25_nostop tf_idf_full  0.0012  -0.0848 0.0872 False 
-bm25_nostop tf_idf_none -0.0233  -0.1093 0.0626 False 
-tf_idf_full tf_idf_none -0.0246  -0.1106 0.0614 False 
+ bm25_full  bm25_nostop  0.0029  -0.0816 0.0874 False 
+ bm25_full  tf_idf_full -0.0006  -0.0851 0.0838 False 
+ bm25_full  tf_idf_none -0.0135   -0.098 0.071  False 
+bm25_nostop tf_idf_full -0.0035   -0.088 0.081  False 
+bm25_nostop tf_idf_none -0.0164  -0.1008 0.0681 False 
+tf_idf_full tf_idf_none -0.0128  -0.0973 0.0716 False 
 ------------------------------------------------------
 
   Multiple Comparison of Means - Tukey HSD,FWER=0.05  
 ======================================================
    group1      group2   meandiff  lower  upper  reject
 ------------------------------------------------------
- bm25_full  bm25_nostop  0.0034  -0.0786 0.0854 False 
- bm25_full  tf_idf_full  0.0019  -0.0801 0.0839 False 
- bm25_full  tf_idf_none -0.0246  -0.1066 0.0574 False 
-bm25_nostop tf_idf_full -0.0015  -0.0835 0.0805 False 
-bm25_nostop tf_idf_none  -0.028   -0.11  0.054  False 
-tf_idf_full tf_idf_none -0.0265  -0.1085 0.0555 False 
+ bm25_full  bm25_nostop  0.0018  -0.0818 0.0854 False 
+ bm25_full  tf_idf_full   -0.0   -0.0837 0.0836 False 
+ bm25_full  tf_idf_none -0.0101  -0.0938 0.0735 False 
+bm25_nostop tf_idf_full -0.0018  -0.0855 0.0818 False 
+bm25_nostop tf_idf_none -0.0119  -0.0956 0.0717 False 
+tf_idf_full tf_idf_none -0.0101  -0.0937 0.0736 False 
 ------------------------------------------------------
 
-  Multiple Comparison of Means - Tukey HSD,FWER=0.05  
-======================================================
-   group1      group2   meandiff  lower  upper  reject
-------------------------------------------------------
- bm25_full  bm25_nostop  -0.01   -0.1632 0.1432 False 
- bm25_full  tf_idf_full  -0.004  -0.1572 0.1492 False 
- bm25_full  tf_idf_none  -0.054  -0.2072 0.0992 False 
-bm25_nostop tf_idf_full  0.006   -0.1472 0.1592 False 
-bm25_nostop tf_idf_none  -0.044  -0.1972 0.1092 False 
-tf_idf_full tf_idf_none  -0.05   -0.2032 0.1032 False 
+ Multiple Comparison of Means - Tukey HSD,FWER=0.05 
+====================================================
+   group1      group2   meandiff lower  upper reject
+----------------------------------------------------
+ bm25_full  bm25_nostop  0.012   -0.159 0.183 False 
+ bm25_full  tf_idf_full  0.002   -0.169 0.173 False 
+ bm25_full  tf_idf_none  -0.012  -0.183 0.159 False 
+bm25_nostop tf_idf_full  -0.01   -0.181 0.161 False 
+bm25_nostop tf_idf_none  -0.024  -0.195 0.147 False 
+tf_idf_full tf_idf_none  -0.014  -0.185 0.157 False 
+----------------------------------------------------
 ```
-___
-
-- Main documentation [HERE](../README.md)
-- Scripts documentation [HERE](SCRIPTS.md)
-- Figures documentation [HERE](FIGURES.md)
-- Tables documentation [you are here]
-- `terrier.properties` [HERE](../terrier.properties)
