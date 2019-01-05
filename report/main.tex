@@ -87,7 +87,7 @@ TF IDF                          & --                       & \texttt{tf\_idf\_no
 Il sistema di reperimento che ho deciso di utilizzare per l'homework è Terrier (ver. 4.4), mentre la libreria utilizzata per l'evaluation è \texttt{trec\_eval};\todo{link a terrier e trec eval} per i test statistici sono stati utilizzati i moduli Python \texttt{scipy.stats}\cite{scipy} e \texttt{statsmodels}\cite{statsmodels}.
 
 \subsection{Organizzazione della relazione}
-Nella Sezione \ref{sec:sw} presento brevemente il software siluppato; nella Sezione \ref{secsec:} fornisco una descrizione di quelli che sono stati i passaggi fondamentali che hanno portato al completamento dell'homework.
+Nella Sezione \ref{sec:sw} presento brevemente il software siluppato; nella Sezione \ref{sec:devops} fornisco una descrizione di quelli che sono stati i passaggi fondamentali che hanno portato al completamento dell'homework.
 
 \section{SOFTWARE SVILUPPATO}\label{sec:sw}
 
@@ -95,18 +95,10 @@ Terrier offre una ampia possibilità di scripting, per tale motivo ho deciso di 
 Il software sviluppato, seppur commentato e documentato con cura, non è orientato al riuso, è bensì un modo veloce che permette di replicare con semplicità i risultati ottenuti.
 L'utente interessato alla replicazione dei risultati deve solamente scaricare il corpus dei documenti (ovvero la cartella TIPSTER), spostarla all'interno delle cartelle del progetto come specificato nelle istruzioni, e solo a quel punto dovrà eseguire lo script denominato \texttt{main.sh}.
 
-La documentazione completa (in inglese), le istruzioni per l'utilizzo, ed il software stesso sono reperibili alla repository presente al link \texttt{https://github.com/esaraci/IR-HW1} resa pubblica in data: \todo{aggiungere data}. Nella repository sono presenti anche tutte le tabelle e le immagini generate dagli script, molte delle quali non sono riportate in questo elaborato.
+La documentazione completa, le istruzioni per l'utilizzo, ed il software stesso sono reperibili alla repository presente al link \texttt{https://github.com/esaraci/IR-HW1} pubblicata in data: \todo{aggiungere data}. Nella repository sono presenti anche tutte le tabelle e le immagini generate dagli script, molte delle quali non sono riportate in questo elaborato.
 
 \section{FASI OPERATIVE}\label{sec:devops}
-L'homework è suddivisibile, secondo personale interpretazione, in cinque fasi distinte:
-\begin{enumerate}
-\item Preprocessing;
-\item Indexing;
-\item Retrieval;
-\item Evaluation;
-\item Hypothesis Testing;
-\end{enumerate}
-Le fasi (2), (3), e (4) sono effettuate per ognuno dei quattro sistemi elencati in Tabella \ref{tab:systems}; la fase (1) è relativa alla preparazione dei file; la fase (5) prevede l'analisi aggregata dei quattro sistemi. Segue la descrizione delle cinque fasi.
+L'homework è suddivisibile, secondo personale interpretazione, in cinque fasi distinte: \textit{Preprocessing}, \textit{Indexing}, \textit{Retrieval}, \textit{Evaluation}, \textit{Hypothesis Testing}.
 \subsection{Preprocessing}
 Nella fase di preprocessing vengono creati i file e le cartelle necessari alla corretta esecuzione delle fasi seguenti. Non essendo una fase strettamente legata allo scopo della relazione ne cito solo i passaggi che ritengo rilevanti. Uno di questi è la rinominazione dei file con estensione \texttt{.\{1,2,3\}Z}. I file appena citati non sono manipolabili dal comando POSIX \texttt{uncompress} solamente a causa della loro estensione (non per il formato), motivo per cui li ho rinominati in \texttt{\_\{1,2,3\}.Z}, in maniera tale da essere accettati senza errori o warning da \texttt{uncompress}.
 
@@ -144,7 +136,7 @@ L'evaluation consiste nel confrontare le run ottenute dalla fase di \textit{retr
     \centering
     \includegraphics[scale=0.55]{figures/iprc.pdf}
     
-    \caption{Valori (interpolati) medi sui 50 topic di \textit{precision} a diversi livelli di \textit{recall}. L'andamento della curva è prevedibile in quanto al crescere del numero di documenti reperiti aumenta anche il numero di documenti non rilevanti reperiti, facendo così diminuire la \textit{precision} \cite{measures}. Le linee veritcali grigie facilitano il confronto fra i sistemi delimitando le tre aree in cui risulta essere più interessante compararli \cite{measures}. Nessun sistema sembra essere notevolmente migliore rispetto agli altri.}
+    \caption{Valori (interpolati) medi sui 50 topic di \textit{precision} a diversi livelli di \textit{recall}. L'andamento della curva è prevedibile in quanto al crescere del numero di documenti reperiti aumenta anche il numero di documenti non rilevanti reperiti, facendo così diminuire la \textit{precision} \cite{measures}. Le linee grigie veritcali facilitano il confronto fra i sistemi delimitando le tre aree in cui risulta essere più interessante compararli \cite{measures}. Nessun sistema sembra essere notevolmente migliore rispetto agli altri.}
     \label{fig:iprc}
 \end{figure}
 
@@ -162,7 +154,7 @@ RPrec            & 0.0567          & 0.9822           \\
 P@10             & 0.0446          & 0.9875           \\
 \hline
 \end{tabular}
-\caption{I valori della colonna \textit{p-value} indicano la probabilità di osservare misure simili in presenza dell'ipotesi nulla. Essendo alti non abbiamo prove empiriche per rigettare tale ipotesi, la quale sostiene che le misure ottenute nei 50 topic dai 4 sistemi provengono dalla stessa distribuzione di probabilità, in breve: nessuno dei sistemi è signficativamente diverso dagli altri (a livello di signficatività 0.05).}
+\caption{I valori della colonna \textit{p-value} indicano la probabilità di osservare misure simili in presenza dell'ipotesi nulla. Essendo alti non abbiamo prove empiriche per rigettare tale ipotesi, la quale sostiene che le misure ottenute nei 50 topic dai 4 sistemi provengano dalla stessa distribuzione di probabilità, in breve: nessuno dei sistemi è signficativamente diverso dagli altri (a livello di signficatività 0.05).}
 \label{tab:anova}
 \end{table}
 
@@ -170,13 +162,13 @@ P@10             & 0.0446          & 0.9875           \\
     \centering
     \includegraphics[scale=0.4]{figures/tukey_maps.pdf}
     
-    \caption{In blu è colorato l'intervallo di confidenza del sistema che pensavo raggiungesse le migliori performance (\texttt{bm25\_full}); in grigio sono colorati i sistemi NON significativamente diversi dal sistema blu; in rosso (nessuno in figura) sono colorati i sistemi significativamente diversi, ovvero quelli con intervalli di confidenza disgiunti dal sistema blu.}
+    \caption{In blu è colorato l'intervallo di confidenza del sistema che pensavo raggiungesse le migliori performance (\texttt{bm25\_full}); in grigio sono colorati i sistemi NON significativamente diversi dal sistema blu; in rosso (nessuno in figura) sono colorati i sistemi significativamente diversi, ovvero quelli con intervalli di confidenza disgiunti dal sistema blu. Il grafico coferma nuovamente ciò che già avevamo visto con ANOVA, ovvero che non abbiamo prove empiriche per rigettare l'ipotesi nulla.}
     \label{fig:tukey_maps}
 \end{figure}
 
-\section{CONCLUSIONS}
-\todo{Cocnlusioni}
-A conclusion section is not required. Although a conclusion may review the main points of the paper, do not replicate the abstract as the conclusion. A conclusion might elaborate on the importance of the work or suggest applications and extensions. 
+\section{NOTE FINALI}
+In \todo{cite pagina optimal}\cite{optimal} sono riportati i risultati ottimali ottenuti da Terrier sulle collezioni a nostra disposizione. Essi sono raggiunti cambiando il valore del parametro \todo{parametro} del modello \todo{modello}, operazione che non mi è possibile fare da riga di comando.   
+I valori riportati in questo elaborato possono essere migliorati aggiungendo il tag \texttt{DESC} al parametro \texttt{TrecQueryTags.process} all'interno del file \texttt{terrier.properties}, ma ciò non è usuale in quanto il contenuto del tag \texttt{DESC} è solo una forma d'aiuto verso i \textit{tutor}, non fa quindi parte del contenuto della query.
 
 \addtolength{\textheight}{-12cm}   % This command serves to balance the column lengths
                                   % on the last page of the document manually. It shortens
@@ -198,6 +190,9 @@ A conclusion section is not required. Although a conclusion may review the main 
 \bibitem{scipy} Jones E, Oliphant E, Peterson P, et al. SciPy: Open Source Scientific Tools for Python, 2001, http://www.scipy.org/ 
 \bibitem{statsmodels} Seabold, Skipper, and Josef Perktold. “Statsmodels: Econometric and statistical modeling with python.” Proceedings of the 9th Python in Science Conference. 2010.
 \bibitem{measures} \texttt{https://trec.nist.gov/pubs/trec16/appendices/measures.pdf}
+\bibitem{terrier} \texttt{LUL}
+\bibitem{treceval} \texttt{LUL2}
+\bibitem{LUL1} \texttt{LUL3}
 \todo{add lulz}
 \end{thebibliography}
 \end{document}
