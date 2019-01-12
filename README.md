@@ -2,7 +2,7 @@
 
 ### Usage
 
-1. Clone the repository and rename Terrier:
+1. Put terrier inside the cloned repository and rename it, backupt the `terrier` folder if it already exists:
 ```
 $ git clone https://github.com/esaraci/ir-HW1.git && cd ir-HW1
 $ tar -xzvf terrier-core-4.4-bin.tar.gz
