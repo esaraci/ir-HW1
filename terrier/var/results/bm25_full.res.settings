@@ -1,0 +1,74 @@
+# Settings of Terrier (TRECQuerying) generated for run /home/esaraci/Projects/ir-HW1/terrier/var/results/bm25_full.res
+#Fri Jan 04 17:27:59 CET 2019
+terrier.var=var
+terrier.share=share
+trec.encoding=UTF-8
+trec.model=BM25
+expansion.terms=10
+trecquery.ignore.desc.narr.name.tokens=true
+collection.spec=collection.spec
+ignore.low.idf.terms=true
+files.transforms=
+trec.results=results
+querying.preprocesses.controls=
+terrier.etc=/home/esaraci/Projects/ir-HW1/terrier/etc
+docs.check=20
+trec.matching=Matching
+files.default.scheme=file
+match.empty.query=false
+blocks.size=1
+terrier.index.prefix=data
+stopwords.encoding=UTF-8
+trec.iteration=Q
+TrecQueryTags.doctag=TOP
+querying.preprocesses.order=
+TrecQueryTags.skip=NARR,DESC
+tokeniser=org.terrier.indexing.tokenisation.EnglishTokeniser
+field.querying=false
+querying.postprocesses.controls=
+.casesensitive=false
+matching.postinglist.manager.plugins=
+terrier.home=/home/esaraci/Projects/ir-HW1/terrier
+termpipelines=Stopwords,PorterStemmer
+max.term.length=20
+trec.runtag=BM25b0.75
+querying.postprocesses.order=
+trec.qe.model=org.terrier.matching.models.queryexpansion.Bo1
+trec.results.file=bm25_full.res
+stopwords.filename=stopword-list.txt
+trec.topics=data/topics.351-400_trec7.txt
+trec.querying.outputformat=org.terrier.structures.outputformat.TRECDocnoOutputFormat
+trec.querying.resultscache=org.terrier.structures.cache.NullQueryResultCache
+memory.reserved=100Mi
+stopwords.intern.terms=false
+trec.querying.dump.settings=true
+block.indexing=false
+terrier.plugins=
+querying.postfilters.order=
+TrecQueryTags.casesensitive=false
+querying.default.controls=
+blocks.max=100000
+matching.retrieved_set_size=1000
+trec.output.format.length=1000
+expansion.documents=3
+trec.manager=Manager
+ignore.empty.documents=false
+lowercase=true
+querying.allowed.controls=c,start,end
+TrecQueryTags.idtag=NUM
+files.to.cache=
+trec.topics.parser=TRECQuery
+trec.querying.outputformat.docno.meta.key=docno
+terrier.index.path=indexes/full
+trec.results.suffix=.res
+terrier.index.retrievalLoadingProfile.default=true
+querying.postfilters.controls=
+TrecQueryTags.process=TITLE
+matching.dsms=
+manager.caching.filters=false
+querying.no.negative.requirement=
+# topicfile: data/topics.351-400_trec7.txt
+# run started at: 1546619278695
+# run finished at 1546619279669
+# c=0.0 c_set=false
+# model=BM25
