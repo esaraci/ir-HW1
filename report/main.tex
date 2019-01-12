@@ -68,7 +68,7 @@ Homework 1 - Reperimento dell'Informazione - A.A. 18/19
 \section{INTRODUZIONE}
 L'homework consiste nel confronto fra diverse configurazioni di un sistema di reperimento differenziati principalmente dal modello di retrieval e dalle diverse pipeline di preprocessing utilizzati. Il corpus dei documenti è rappresentato dalle collezioni sperimentali Disks4\&5 di TREC7, consistenti in circa 528.000 documenti di cui abbiamo a disposizione 50 topic con giudizi di rilevanza binari. L'obiettivo è quindi utilizzare un qualsiasi sistema di reperimento citato a lezione ed analizzare le performance delle varie configurazioni richieste, determinando, ad esempio, quale sia la migliore.
 \noindent
-Le varie configurazioni (che chiamerò per semplicità \textit{sistemi\footnote{Con sistema intendo la coppia composta dal modello di reperimento e dalla pipeline. Da non confondere con la parola sistema intesa ad indicare Terrier nel suo complesso.}} nel proseguo) sono le seguenti:
+Le varie configurazioni (che chiamerò per semplicità \textit{sistemi\footnote{Con sistema intendo la coppia composta dal modello di reperimento e dalla pipeline. Da non confondere con la parola sistema intesa ad indicare Terrier nel suo complesso.}}) sono le seguenti:
 
 \begin{table}[h]
 \centering
@@ -84,7 +84,7 @@ TF IDF                          & --                       & \texttt{tf\_idf\_no
 \label{tab:systems}
 \end{table}
 
-Il sistema di reperimento che ho deciso di utilizzare per l'homework è Terrier (ver. 4.4), mentre la libreria utilizzata per l'evaluation è \texttt{trec\_eval};\todo{link a terrier e trec eval} per i test statistici sono stati utilizzati i moduli Python \texttt{scipy.stats}\cite{scipy} e \texttt{statsmodels}\cite{statsmodels}.
+Il sistema di reperimento che ho deciso di utilizzare per l'homework è Terrier (ver. 4.4)~\cite{terrier}, mentre la libreria utilizzata per l'evaluation è \texttt{trec\_eval}~\cite{treceval}; per i test statistici sono stati utilizzati i moduli Python \texttt{scipy.stats}~\cite{scipy} e \texttt{statsmodels}~\cite{statsmodels}.
 
 \subsection{Organizzazione della relazione}
 Nella Sezione \ref{sec:sw} presento brevemente il software siluppato; nella Sezione \ref{sec:devops} fornisco una descrizione di quelli che sono stati i passaggi fondamentali che hanno portato al completamento dell'homework.
@@ -95,7 +95,7 @@ Terrier offre una ampia possibilità di scripting, per tale motivo ho deciso di 
 Il software sviluppato, seppur commentato e documentato con cura, non è orientato al riuso, è bensì un modo veloce che permette di replicare con semplicità i risultati ottenuti.
 L'utente interessato alla replicazione dei risultati deve solamente scaricare il corpus dei documenti (ovvero la cartella TIPSTER), spostarla all'interno delle cartelle del progetto come specificato nelle istruzioni, e solo a quel punto dovrà eseguire lo script denominato \texttt{main.sh}.
 
-La documentazione completa, le istruzioni per l'utilizzo, ed il software stesso sono reperibili alla repository presente al link \texttt{https://github.com/esaraci/IR-HW1} pubblicata in data: \todo{aggiungere data}. Nella repository sono presenti anche tutte le tabelle e le immagini generate dagli script, molte delle quali non sono riportate in questo elaborato.
+La documentazione completa, le istruzioni per l'utilizzo, ed il software stesso sono reperibili alla repository presente al link \texttt{https://github.com/esaraci/IR-HW1} \todo{aggiungere link corretto}. Nella repository sono presenti anche tutte le tabelle e le immagini generate dagli script, molte delle quali non sono riportate in questo elaborato.
 
 \section{FASI OPERATIVE}\label{sec:devops}
 L'homework è suddivisibile, secondo personale interpretazione, in cinque fasi distinte: \textit{Preprocessing}, \textit{Indexing}, \textit{Retrieval}, \textit{Evaluation}, \textit{Hypothesis Testing}.
@@ -104,7 +104,7 @@ Nella fase di preprocessing vengono creati i file e le cartelle necessari alla c
 
 In alcuni file sono presenti dei commenti, essi possono essere rimossi attraverso alcuni comandi, tuttavia ho verificato empriricamente che la loro rimozione non porta ad alcun miglioramento nelle performance; ho deciso di tenerli.
 
-Rientra in questa fase anche la parte di ricerca relativa alla miglior configurazione per il file \texttt{terrier.properties.} La filosofia seguita per la scrittura del file è stata quella di introdurre in esso il minimo necessario per il corretto e buon funzionamento di Terrier. Ad esempio non sono stati definiti esplicitamente i parametri il cui valore predefinito fosse quello voluto\footnote{Eccezion fatta per quelli il cui cambiamento risultasse comodo per esperimenti veloci.}; il modello di reperimento, il nome degli indici, i file di output non sono stati inseriti nel file in quanto vengono specificati automaticamente dal software introdotto alla Sezione \ref{sec:sw}. \todo{citare pagina in cui si sono viste robe terrier.properties}
+Rientra in questa fase anche la parte di ricerca relativa alla miglior configurazione per il file \texttt{terrier.properties.} La filosofia seguita per la scrittura del file è stata quella di introdurre in esso il minimo necessario per il corretto e buon funzionamento di Terrier. Ad esempio non sono stati definiti esplicitamente i parametri il cui valore predefinito fosse quello voluto\footnote{Eccezion fatta per quelli il cui cambiamento risultasse comodo per esperimenti veloci.}; il modello di reperimento, il nome degli indici, i file di output non sono stati inseriti nel file in quanto vengono specificati automaticamente dal software introdotto alla Sezione \ref{sec:sw}. Alcuni tag sono stati inseriti basandosi su~\cite{besttags}.
 
 \subsection{Indexing}\label{subsec:index}
 In questa fase vengono creati gli indici richiesti. Si noti che sebbene i sistemi siano 4, gli indici sono solamente 3, ciò si può intuire dalla Tabella \ref{tab:systems} in quanto sono solo i passi della pipeline ad influire sull'indice e ci sono solo 3 diverse pipeline. Osservando le dimensioni dei \textit{lexicon} ho notato che l'applicazione del PorterStemmer arriva a rimuovere circa ~100.000 termini dagli ~840.000 iniziali, mentre la rimozione delle stopword porta un ulteriore decremento di ~200 termini.
@@ -115,7 +115,7 @@ In questa fase vengono creati gli indici richiesti. Si noti che sebbene i sistem
 La fase di retrieval è la fase in cui Terrier, ricevendo in input le query (o \textit{topic}) a nostra disposizione, restituisce una lista di documenti ritenuti rilevanti per le query. Questa fase è svolta su tutti e 4 i sistemi, portandoci ad avere risultati (o \textit{run}) possibilmente diversi per ogni topic e per ogni sistema. La valutazione della bontà delle run si svolge nella fase di \textit{evaluation}.
 \subsection{Evaluation}
 \label{subsec:eval}
-L'evaluation consiste nel confrontare le run ottenute dalla fase di \textit{retrieval} con i giudizi di rilevanza binari a nostra disposizione. Riporto in forma grafica (Figura \ref{fig:iprc}) e tabellare (Tabella \ref{tab:recap}) alcuni dei risultati essenziali.
+L'evaluation consiste nel confrontare le run ottenute dalla fase di \textit{retrieval} con i giudizi di rilevanza binari a nostra disposizione. Riporto in forma tabellare (Tabella \ref{tab:recap}) e grafica (Figura \ref{fig:iprc}) alcuni dei risultati essenziali.
 
 
 \begin{table}[h]
@@ -136,7 +136,7 @@ L'evaluation consiste nel confrontare le run ottenute dalla fase di \textit{retr
     \centering
     \includegraphics[scale=0.55]{figures/iprc.pdf}
     
-    \caption{Valori (interpolati) medi sui 50 topic di \textit{precision} a diversi livelli di \textit{recall}. L'andamento della curva è prevedibile in quanto al crescere del numero di documenti reperiti aumenta anche il numero di documenti non rilevanti reperiti, facendo così diminuire la \textit{precision} \cite{measures}. Le linee grigie veritcali facilitano il confronto fra i sistemi delimitando le tre aree in cui risulta essere più interessante compararli \cite{measures}. Nessun sistema sembra essere notevolmente migliore rispetto agli altri.}
+    \caption{Valori (interpolati) medi sui 50 topic di \textit{precision} a diversi livelli di \textit{recall}. L'andamento della curva è prevedibile in quanto al crescere del numero di documenti reperiti aumenta anche il numero di documenti non rilevanti reperiti, facendo così diminuire la \textit{precision}~\cite{measures}. Le linee grigie veritcali facilitano il confronto fra i sistemi delimitando le tre aree in cui risulta essere più interessante compararli~\cite{measures}. Nessun sistema sembra essere notevolmente migliore rispetto agli altri.}
     \label{fig:iprc}
 \end{figure}
 
@@ -166,8 +166,8 @@ P@10             & 0.0446          & 0.9875           \\
     \label{fig:tukey_maps}
 \end{figure}
 
-\section{NOTE FINALI}
-In \todo{cite pagina optimal}\cite{optimal} sono riportati i risultati ottimali ottenuti da Terrier sulle collezioni a nostra disposizione. Essi sono raggiunti cambiando il valore del parametro \todo{parametro} del modello \todo{modello}, operazione che non mi è possibile fare da riga di comando.   
+\section{NOTE AGGIUNTIVE}\label{notes}
+In~\cite{optimal} sono riportati i risultati ottimali ottenuti da Terrier sulle collezioni a nostra disposizione. Essi sono stati raggiunti cambiando il valore del parametro \texttt{b} del modello \textit{BM25}, operazione che non mi è possibile fare da riga di comando.   
 I valori riportati in questo elaborato possono essere migliorati aggiungendo il tag \texttt{DESC} al parametro \texttt{TrecQueryTags.process} all'interno del file \texttt{terrier.properties}, ma ciò non è usuale in quanto il contenuto del tag \texttt{DESC} è solo una forma d'aiuto verso i \textit{tutor}, non fa quindi parte del contenuto della query.
 
 \addtolength{\textheight}{-12cm}   % This command serves to balance the column lengths
@@ -187,12 +187,12 @@ I valori riportati in questo elaborato possono essere migliorati aggiungendo il 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{thebibliography}{99}
+\bibitem{terrier} Iadh Ounis, Gianni Amati, Vassilis Plachouras, Ben He, Craig Macdonald, and Christina Lioma. Terrier: A High Performance and Scalable Information Retrieval Platform. In Proceedings of ACM SIGIR'06 Workshop on Open Source Information Retrieval (OSIR 2006). 10th August, 2006. Seattle, Washington, USA
+\bibitem{treceval} https://trec.nist.gov/trec\_eval/index.html
 \bibitem{scipy} Jones E, Oliphant E, Peterson P, et al. SciPy: Open Source Scientific Tools for Python, 2001, http://www.scipy.org/ 
 \bibitem{statsmodels} Seabold, Skipper, and Josef Perktold. “Statsmodels: Econometric and statistical modeling with python.” Proceedings of the 9th Python in Science Conference. 2010.
 \bibitem{measures} \texttt{https://trec.nist.gov/pubs/trec16/appendices/measures.pdf}
-\bibitem{terrier} \texttt{LUL}
-\bibitem{treceval} \texttt{LUL2}
-\bibitem{LUL1} \texttt{LUL3}
-\todo{add lulz}
+\bibitem{besttags} \texttt{http://ir.dcs.gla.ac.uk/wiki/Terrier/Disks4\&5}
+\bibitem{optimal} \texttt{http://terrier.org/docs/v4.0/trec\_examples.html}
 \end{thebibliography}
 \end{document}
